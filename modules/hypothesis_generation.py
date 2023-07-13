@@ -2,6 +2,7 @@ import logging
 from langchain import PromptTemplate
 
 template = """
+Background Information: Prompt engineering is a powerful technique to enhance ability of large language models.
 How can we solve the problem below? Please be concice, simple, and very concrete.
 -------------------------------------------------------------------
 {problem}

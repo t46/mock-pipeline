@@ -9,7 +9,7 @@ The hypothesis to solve the problem is:
 {hypothesis}
 
 Given above, how can we verify the hypothesis? Please give us the detailed verification plan in strucured sentences. 
-Please be concice, simple, and very concrete. Write down the step-by-step procedure.
+Please be detailed and very concrete so that the procedure should be executable by a large language model and computer. Write down the step-by-step procedure.
 """
 
 prompt = PromptTemplate(
