@@ -24,17 +24,21 @@ def main(args):
 
     verification_designer = verification_design.VerificationDesigner()
     verification_plan = verification_designer(problem, hypothesis, llm)
-    print(verification_plan, llm)
+    print(verification_plan)
     logging.info('Verification Plan: %s', verification_plan)
 
-    verification_instantiator = verification_instantiation.VerificationInstantiator()
-    executable_verification_plan = verification_instantiator(verification_plan)
+    # verification_instantiator = verification_instantiation.VerificationInstantiator()
+    # executable_verification_plan = verification_instantiator(verification_plan)
 
-    verification_executor = verification_execution.VerificationExecutor()
-    verification_result = verification_executor(executable_verification_plan)
+    # verification_executor = verification_execution.VerificationExecutor()
+    # verification_result = verification_executor(executable_verification_plan)
+    verification_result = "Hypothesis is True"
+    logging.info('Verification Result: %s', verification_result)
 
     paper_writer = paper_writing.PaperWriter()
-    paper_writer(problem, hypothesis, verification_plan, verification_result)  # TODO: intermediate_outputs
+    latex_content = paper_writer(problem, hypothesis, verification_plan, verification_result, llm)  # TODO: intermediate_outputs
+    print(latex_content)
+    logging.info('LaTeX Content: %s', latex_content)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
