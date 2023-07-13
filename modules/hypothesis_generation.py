@@ -18,6 +18,6 @@ class HypothesisGenerator:
         pass
     def __call__(self, problem, llm):
         prompt_text = prompt.format(problem=problem)
-        logging.info('Problem discovery prompt: %s', prompt_text)
+        logging.info('Hypothesis generation prompt: %s', prompt_text)
         hypothesis = llm(prompt_text)
         return hypothesis
