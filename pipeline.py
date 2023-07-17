@@ -9,7 +9,7 @@ def main(args):
         level=logging.INFO,  # ログのレベル (DEBUG, INFO, WARNING, ERROR, CRITICAL)
         format='%(asctime)s - %(levelname)s - %(message)s'  # ログのフォーマット
 )
-    llm = OpenAI(model_name="text-davinci-003", temperature=0.9)  # TODO: define internally
+    llm = OpenAI(model_name="gpt-4", temperature=0.9)  # TODO: define internally
 
     paper = args.path_to_paper
     problem_discoverer = problem_discovery.ProblemDiscoverer()
@@ -27,12 +27,13 @@ def main(args):
     print(verification_plan)
     logging.info('Verification Plan: %s', verification_plan)
 
-    # verification_instantiator = verification_instantiation.VerificationInstantiator()
-    # executable_verification_plan = verification_instantiator(verification_plan)
+    verification_instantiator = verification_instantiation.VerificationInstantiator()
+    executable_verification_plan = verification_instantiator(verification_plan, llm)
+    print(executable_verification_plan)
+    logging.info('Executable Verification Plan: %s', executable_verification_plan)
 
-    # verification_executor = verification_execution.VerificationExecutor()
-    # verification_result = verification_executor(executable_verification_plan)
-    verification_result = "Hypothesis is True"
+    verification_executor = verification_execution.VerificationExecutor()
+    verification_result = verification_executor()
     logging.info('Verification Result: %s', verification_result)
 
     paper_writer = paper_writing.PaperWriter()
