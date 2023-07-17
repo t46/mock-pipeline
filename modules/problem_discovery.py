@@ -2,7 +2,9 @@ import logging
 from langchain import PromptTemplate
 
 template = """
-What is the problem to be solved you found in the latex texts below?
+The text below is that of a academic paper.
+What is the research problem to be solved you found in the texts below?
+Please be detailed and very concrete so that we can generate a concrete hypothesis from the problem.
 -------------------------------------------------------------------
 {paper}
 """

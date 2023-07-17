@@ -1,47 +1,48 @@
-import openai
-import json
+# Python Pseudocode
 
+# Import required libraries
+import time
+import resources
+from post_processing_module import PostProcessingModule
+from llm import LLM
 
-def generate_prompt(question):
-    prompt = f"{question}\n"
-    return prompt
+# Step 1: Establish a Baseline 
+tasks = gather_tasks() # Function to gather tasks for LLMs
+baseline_outputs = []
+baseline_time_and_resources = []
 
-def check_correctness(answer, response):
-    return (answer == response.choices[0].text.strip())
+for task in tasks:
+    llm = LLM() 
+    start = time.time()
+    output = llm.run_task(task)
+    end = time.time()
+    
+    baseline_outputs.append(output)
+    baseline_time_and_resources.append((end-start, resources.getrusage(resources.RUSAGE_SELF)))
+    
+document_process(baseline_outputs, baseline_time_and_resources)
 
-def verification_criterion(accuracy_original, accuracy_propositon):
-    return bool(accuracy_original < accuracy_propositon)
+# Step 2: Development of the Module
+# This part would involve writing and testing the code for the post-processing module. 
+# For this pseudocode, let's pretend we have a module ready to use
 
-with open('input_data/sample_data.jsonl', 'r') as file:
-    correct_answer_original = 0
-    correct_answer_proposition = 0
-    total = 0
-    for line in file:
-        data = json.loads(line)
-        question = data["question"]
-        answer = data["answer"]
+# Step 3: Testing the Module
+new_outputs = []
+new_time_and_resources = []
 
-        response_original = openai.Completion.create(
-            model="text-davinci-003",
-            prompt=f"Q: {question}\n"
-            )
-        response_proposition = openai.Completion.create(
-            model="text-davinci-003",
-            prompt=f"Q: {question}\n Constraint: Extract only the direct answer from the response without any additional words."
-            )
+module = PostProcessingModule()
 
-        total += 1
-        correct_answer_original += check_correctness(answer, response_original)
-        correct_answer_proposition += check_correctness(answer, response_proposition)
+for task in tasks:
+    llm = LLM() 
+    start = time.time()
+    output = llm.run_task(task)
+    processed_output = module.process_output(output)
+    end = time.time()
+    
+    new_outputs.append(processed_output)
+    new_time_and_resources.append((end-start, resources.getrusage(resources.RUSAGE_SELF)))
+  
+quality_check(new_outputs)  # Function to check quality of new outputs
 
-accuracy_original = correct_answer_original / total
-accuracy_propositon = correct_answer_proposition / total
-print("Orinal Accuracy: ", accuracy_original)
-print("New Accuracy: ", accuracy_propositon)
-
-print(f"Hypothesis is {verification_criterion(accuracy_original, accuracy_propositon)}")
-
-
-        
-
-
+# Step 4: Evaluation and Analysis
+compare_results(baseline_outputs, baseline_time_and_resources, new_outputs, new_time_and_resources)
