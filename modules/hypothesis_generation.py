@@ -10,6 +10,12 @@ Note that hypothesis is a statement that can be tested and answered in yes or no
 {problem}
 """
 
+preivious_hypothesis_template = """
+Previous Hypothesis: {previous_hypothesis}
+The previous hypothesis is not true. Please output a detailed and very concrete better hypothesis.
+-------------------------------------------------------------------
+"""
+
 prompt = PromptTemplate(
     template=template,
     input_variables=["problem"]
@@ -18,8 +24,10 @@ prompt = PromptTemplate(
 class HypothesisGenerator:
     def __init__(self):
         pass
-    def __call__(self, problem, llm):
+    def __call__(self, problem, llm, previous_hypothesis=None):
         prompt_text = prompt.format(problem=problem)
+        if previous_hypothesis is not None:
+            prompt_text = preivious_hypothesis_template.format(previous_hypothesis=previous_hypothesis) + prompt_text
         logging.info('Hypothesis generation prompt: %s', prompt_text)
         hypothesis = llm(prompt_text)
         return hypothesis

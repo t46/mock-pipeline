@@ -2,14 +2,17 @@ from modules import problem_discovery, hypothesis_generation, verification_desig
 from langchain.llms import OpenAI
 import argparse
 import logging
+import datetime
 
 def main(args):
+    now = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
     logging.basicConfig(
-        filename='logs/output.log',  # ログを保存するファイル名
-        level=logging.INFO,  # ログのレベル (DEBUG, INFO, WARNING, ERROR, CRITICAL)
-        format='%(asctime)s - %(levelname)s - %(message)s'  # ログのフォーマット
+        filename=f'logs/{now}.log',
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s'
 )
     llm = OpenAI(model_name="gpt-4", temperature=0.9)  # TODO: define internally
+    verification_result = 'False'
 
     paper = args.path_to_paper
     problem_discoverer = problem_discovery.ProblemDiscoverer()
@@ -17,24 +20,41 @@ def main(args):
     print(problem)
     logging.info('Problem: %s', problem)
 
-    hypothesis_generator = hypothesis_generation.HypothesisGenerator()
-    hypothesis = hypothesis_generator(problem, llm)
-    print(hypothesis)
-    logging.info('Hypothesis: %s', hypothesis)
+    cnt = 0
 
-    verification_designer = verification_design.VerificationDesigner()
-    verification_plan = verification_designer(problem, hypothesis, llm)
-    print(verification_plan)
-    logging.info('Verification Plan: %s', verification_plan)
+    while 'False' in verification_result:
 
-    verification_instantiator = verification_instantiation.VerificationInstantiator()
-    executable_verification_plan = verification_instantiator(verification_plan, llm)
-    print(executable_verification_plan)
-    logging.info('Executable Verification Plan: %s', executable_verification_plan)
+        hypothesis_generator = hypothesis_generation.HypothesisGenerator()
+        if cnt == 0:
+            hypothesis = hypothesis_generator(problem, llm)
+        else:
+            hypothesis = hypothesis_generator(problem, llm, hypothesis)
+        print(hypothesis)
+        logging.info('Hypothesis: %s', hypothesis)
 
-    verification_executor = verification_execution.VerificationExecutor()
-    verification_result = verification_executor()
-    logging.info('Verification Result: %s', verification_result)
+        verification_designer = verification_design.VerificationDesigner()
+        verification_plan = verification_designer(problem, hypothesis, llm)
+        print(verification_plan)
+        logging.info('Verification Plan: %s', verification_plan)
+
+        verification_instantiator = verification_instantiation.VerificationInstantiator()
+        executable_verification_plan = verification_instantiator(verification_plan, llm)
+        print(executable_verification_plan)
+        logging.info('Executable Verification Plan: %s', executable_verification_plan)
+
+        verification_executor = verification_execution.VerificationExecutor()
+        verification_result = verification_executor()
+        logging.info('Verification Result: %s', verification_result)
+
+        if 'True' in verification_result:
+            print('Hypothesis is True')
+            break
+        
+        cnt += 1
+
+        # debugging
+        if cnt == 2:
+            break
 
     paper_writer = paper_writing.PaperWriter()
     latex_content = paper_writer(problem, hypothesis, verification_plan, verification_result, llm)  # TODO: intermediate_outputs

@@ -4,4 +4,4 @@ class VerificationExecutor:
         pass
     def __call__(self):
         subprocess.run(["python", "scripts/verification.py"])
-        return 'Hypothesis is True'
+        return 'Hypothesis is False'
