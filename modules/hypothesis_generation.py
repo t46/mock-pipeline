@@ -22,12 +22,13 @@ prompt = PromptTemplate(
 )
 
 class HypothesisGenerator:
-    def __init__(self):
-        pass
-    def __call__(self, problem, llm, previous_hypothesis=None):
+    def __init__(self, llm):
+        self.llm = llm
+    
+    def __call__(self, problem, previous_hypothesis=None):
         prompt_text = prompt.format(problem=problem)
         if previous_hypothesis is not None:
             prompt_text = preivious_hypothesis_template.format(previous_hypothesis=previous_hypothesis) + prompt_text
         logging.info('Hypothesis generation prompt: %s', prompt_text)
-        hypothesis = llm(prompt_text)
+        hypothesis = self.llm(prompt_text)
         return hypothesis

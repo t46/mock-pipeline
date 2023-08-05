@@ -25,13 +25,9 @@ def extract_python_blocks(text):
     combined = '\n'.join(match.strip() for match in matches)
     return combined
 
-class VerificationInstantiator:
-    def __init__(self):
-        pass
-    def __call__(self, verification_plan, llm):
-        prompt_text = prompt.format(verification_plan=verification_plan)
-        logging.info('Verification instantiation prompt: %s', prompt_text)
-        executable_verification_plan = extract_python_blocks(llm(prompt_text))
-        with open('scripts/verification.py', 'w') as f:
-            f.write(executable_verification_plan)
-        return executable_verification_plan
+def instantiate_verification_plan(verification_plan, llm):
+    prompt_text = prompt.format(verification_plan=verification_plan)
+    logging.info('Verification instantiation prompt: %s', prompt_text)
+    executable_verification_plan = extract_python_blocks(llm(prompt_text))
+    with open('scripts/verification.py', 'w') as f:
+        f.write(executable_verification_plan)

@@ -15,12 +15,13 @@ prompt = PromptTemplate(
 )
 
 class ProblemDiscoverer:
-    def __init__(self):
-        pass
-    def __call__(self, paper, llm):
+    def __init__(self, llm):
+        self.llm = llm
+
+    def __call__(self, paper):
         with open(paper, 'r') as f:
             text = f.read()
             prompt_text = prompt.format(paper=text)
             logging.info('Problem discovery prompt: %s', prompt_text)
-        problem = llm(prompt_text)
+        problem = self.llm(prompt_text)
         return problem
