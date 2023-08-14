@@ -9,7 +9,7 @@ import datetime
 
 warnings.simplefilter('ignore')
 
-def main(ags):
+def main():
     now = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
     logging.basicConfig(
         filename=f'logs/test/problem_discovery/{now}.log',
