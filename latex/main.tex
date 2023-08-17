@@ -1,16 +1,21 @@
-
-\documentclass[a4paper]{article}
-\usepackage[utf8]{inputenc}
-\title{Solving the Problem of Manual Post-Processing with Prompt Engineering}
-\author{}
+\documentclass{article}
+\usepackage{amsmath}
+\title{Improving Large Language Models' Output Formatting: An Experiment on Prompt Engineering}
+\author{Author Name}
+\date{\today}
 
 \begin{document}
-
 \maketitle
 
 \begin{abstract}
-This paper investigates the application of prompt engineering to reduce manual post-processing in natural language models. Our hypothesis is that prompt engineering, which involves providing the language models with pre-defined phrases or statements, can improve the output of the model and reduce the need for manual post-processing. We verify this hypothesis by collecting a set of training data and topics, setting up a baseline accuracy score for the same model without prompt engineering, and then feeding the same data and topics to the model with prompt engineering. The accuracy of the output from the LLM with prompt engineering is then compared to the baseline accuracy score to measure the improvement made. The results of our analysis verify that prompt engineering improves the accuracy of natural language models and reduces the need for manual post-processing.
+Large language models (LLMs) have transformed the landscape of automated text generation. Despite their success, a prevalent issue is their proclivity to generate outputs in formats that require manual post-processing. Especially in mathematical tasks, outputs consist of phrases from which the answer, often a numerical figure, must be isolated for evaluation. This inefficiency impedes the evaluation process and necessitates resolution. This paper investigates if implementing a prompt engineering strategy - instructing the LLM to deliver answers in a precise format - can abate the requirement for post-processing. However, the hypothesis that this strategy would significantly reduce the need for post-processing was found to be false.
 \end{abstract}
 
 \section{Introduction}
-Natural language models (LLMs) are becoming increasingly popular for applications such as automated customer service,
+Large language models have proved instrumental in a range of automation tasks, from generating human-like texts to solving complex mathematical problems. Despite the widespread utility, a common issue that plagues these models relates to the formatting of their outputs. Often, the output generated necessitates manual post-processing for evaluative purposes, especially in mathematical contexts. This raises the issue of inefficiency, as the time and effort required for post-processing could be better dedicated to other tasks.
+
+Given this problem, this study sought to explore the possibility of reducing post-processing through a prompt engineering strategy. The hypothesis was that by explicitly instructing the LLM to provide answers in a predefined format, specifically, as lone numerical figures in the case of mathematical tasks, we could significantly streamline the evaluation process. This study aimed at empirically investigating this hypothesis to conclusively determine its validity. The resultant findings, however, contradicted our hypothesis, providing compelling evidence that this strategy does not sufficiently reduce the need for manual post-processing.
+
+This paper discusses the research problem in detail, the proposed solution, the adopted methods of testing the hypothesis, and the significant findings that emerged from this investigation.
+
+\end{document}

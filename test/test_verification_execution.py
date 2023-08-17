@@ -12,7 +12,7 @@ warnings.simplefilter('ignore')
 def main():
     now = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
     logging.basicConfig(
-        filename=f'logs/test/problem_discovery/{now}.log',
+        filename=f'logs/test/verification_execution/{now}.log',
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s'
 )
