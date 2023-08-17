@@ -25,7 +25,7 @@ The verification plan is this:
 Please regenerate the same python code except for the following modifications:
 - **DO NOT** include `your-api-key` in the code since it has already been specified!
 - **DO NOT** output placeholder, make sure you write the implementation down to the contents of the function.
-- Please write a proper implementation where you only end up with comments.
+- Please write a proper implementation where you **DO NOT** only end up with comments.
 """
 
 template_for_install_dependencies = """
