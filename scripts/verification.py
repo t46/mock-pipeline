@@ -1,42 +1,48 @@
+import time
 import openai
-import pandas as pd
+from datetime import datetime
 
-# Set the model and temperature
-model = 'gpt-4'
-temperature = 0.0
+def verify_prompt_strategy():
+    # Selecting the Language Model
+    model = "text-davinci-002"
 
-# Define the inputs
-inputs = ['What is the capital of France?', 'Tell me a joke.', 'Write a short story about a brave knight.', 'What is your opinion on climate change?', 'Translate "Hello" to Spanish.']
+    # Data Preparation
+    control_tasks = ["What is 123 + 456?", "Calculate 789 * 123", "What is the square root of 144?"]
+    experimental_tasks = ["What is 321 + 654?", "Calculate 987 * 321", "What is the square root of 169?"]
 
-# Define a function to run the test
-def run_test(inputs):
-    outputs = []
-    for i in inputs:
-        response = openai.ChatCompletion.create(model=model, messages=[{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": i}], temperature=temperature)
-        outputs.append(response['choices'][0]['message']['content'])
-    return outputs
+    # Running the Control Condition
+    control_results = []
+    control_start_time = datetime.now()
 
-# Run the initial test
-initial_outputs = run_test(inputs)
+    for task in control_tasks:
+        response = openai.Completion.create(engine=model, prompt=task, max_tokens=60)
+        control_results.append(response.choices[0].text.strip())
+        
+    control_end_time = datetime.now()
+    T1 = (control_end_time - control_start_time).total_seconds()
 
-# Define the number of test rounds
-test_rounds = 10
-all_outputs = []
+    # Implementing the Prompt Strategy
+    prompt_strategy = "Please provide the answer as a numerical figure only."
 
-# Run the test for the specified number of rounds
-for i in range(test_rounds):
-    outputs = run_test(inputs)
-    all_outputs.append(outputs)
+    # Running the Experimental Condition
+    experimental_results = []
+    experimental_start_time = datetime.now()
 
-# Create a DataFrame with the outputs
-df = pd.DataFrame(all_outputs, columns=inputs)
+    for task in experimental_tasks:
+        response = openai.Completion.create(engine=model, prompt=f"{task}\n{prompt_strategy}", max_tokens=60)
+        experimental_results.append(response.choices[0].text.strip())
+        
+    experimental_end_time = datetime.now()
+    T2 = (experimental_end_time - experimental_start_time).total_seconds()
 
-# Calculate the consistency of the outputs
-consistency = df.nunique() == 1
-consistency_percentage = (consistency.sum() / len(consistency)) * 100
+    # Analysing the Results
+    percentage_reduction = ((T1 - T2) / T1) * 100
 
-# Print the conclusion based on the consistency of the outputs
-if consistency_percentage == 100:
-    print('The model produces deterministic and consistent outputs.')
-else:
-    print('The model does not produce consistent outputs. Further investigation is needed.')
+    # Documenting the Results
+    print(f"Control tasks results: {control_results}")
+    print(f"Experimental tasks results: {experimental_results}")
+    print(f"Percentage reduction in post-processing time: {percentage_reduction}%")
+
+# Repeating the Experiment
+# This function can be called multiple times with different sets of mathematical tasks
+verify_prompt_strategy()
