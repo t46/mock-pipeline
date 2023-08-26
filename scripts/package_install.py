@@ -1,6 +1,13 @@
 import subprocess
+import sys
 
 def install(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
-install('openai')
+# Install the packages
+install('csv')
+install('random')
+install('statsmodels')
+install('nltk')
+install('sklearn')
+install('pandas')

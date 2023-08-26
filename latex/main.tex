@@ -1,21 +1,35 @@
-\documentclass{article}
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
 \usepackage{amsmath}
-\title{Improving Large Language Models' Output Formatting: An Experiment on Prompt Engineering}
-\author{Author Name}
-\date{\today}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{natbib}
+\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
 
 \begin{document}
-\maketitle
 
-\begin{abstract}
-Large language models (LLMs) have transformed the landscape of automated text generation. Despite their success, a prevalent issue is their proclivity to generate outputs in formats that require manual post-processing. Especially in mathematical tasks, outputs consist of phrases from which the answer, often a numerical figure, must be isolated for evaluation. This inefficiency impedes the evaluation process and necessitates resolution. This paper investigates if implementing a prompt engineering strategy - instructing the LLM to deliver answers in a precise format - can abate the requirement for post-processing. However, the hypothesis that this strategy would significantly reduce the need for post-processing was found to be false.
-\end{abstract}
+\begin{titlepage}
+	\centering
+	\vspace*{8cm}
+	{\huge\bfseries Mitigating Irrelevant Output in GPT-4 Large Language Models through Specific Prompts\par}
+	\vspace{2cm}
+	{\Large\itshape <Your Name>\par}
+	\vfill
+	{\large \today\par}
+\end{titlepage}
+
+\section*{Abstract}
+
+This paper presents an empirical study on the problem of irrelevant sentence outputs when engaging with Large Language Models, with focus on GPT-4. As these models are instructed via prompts, they may return additional sentences along with the desired answer that are not directly relevant to the prompt. This problem adds complexity to the post-processing and performance evaluation of the model's outputs. We proposed a hypothesis that the use of more specific prompts could minimize the unnecessary sentences in the outputs. However, the results showed that our hypothesis was false. Further research is required to address this challenge and improve the model's response accuracy.
 
 \section{Introduction}
-Large language models have proved instrumental in a range of automation tasks, from generating human-like texts to solving complex mathematical problems. Despite the widespread utility, a common issue that plagues these models relates to the formatting of their outputs. Often, the output generated necessitates manual post-processing for evaluative purposes, especially in mathematical contexts. This raises the issue of inefficiency, as the time and effort required for post-processing could be better dedicated to other tasks.
 
-Given this problem, this study sought to explore the possibility of reducing post-processing through a prompt engineering strategy. The hypothesis was that by explicitly instructing the LLM to provide answers in a predefined format, specifically, as lone numerical figures in the case of mathematical tasks, we could significantly streamline the evaluation process. This study aimed at empirically investigating this hypothesis to conclusively determine its validity. The resultant findings, however, contradicted our hypothesis, providing compelling evidence that this strategy does not sufficiently reduce the need for manual post-processing.
+In the era of artificial intelligence, Large Language Models (LLMs) such as GPT-4 have exhibited remarkable performance in various tasks by generating text in response to input prompts. However, one persistent problem is that these models often output irrelevant sentences along with the required response. For instance, when we input the prompt "What is 1 + 1?", the LLM often returns an additional sentence, "The answer to that question is 2," where the part "The answer to that question is" is unnecessary.
 
-This paper discusses the research problem in detail, the proposed solution, the adopted methods of testing the hypothesis, and the significant findings that emerged from this investigation.
+This undesirable phenomenon complicates subsequent operations such as post-processing and performance evaluation, as it can lead to false negatives where correct answers are interpreted as incorrect due to additional information. Furthermore, addressing this inconsistency in the post-processing stage often necessitates a context-specific approach, which is especially challenging as it is impossible to predict the model's output precisely.
+
+Our hypothesis was that the occurrence of irrelevant sentences could be reduced by providing more specific prompts to the LLM. We suggested that if we changed our prompt from "What is 1 + 1?" to "Calculate: 1 + 1" or "Solve: 1 + 1", the LLM could more accurately output the direct answer. This paper details our experiment process and the consequential results, which contradicted our hypothesis. The results revealed that changing the prompt did not significantly reduce the occurrence of irrelevant sentences. 
 
 \end{document}

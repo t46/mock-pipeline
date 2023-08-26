@@ -1,48 +1,61 @@
-import time
-import openai
-from datetime import datetime
+import csv
+import random
+import statsmodels.api as sm
+import nltk
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn import metrics
 
-def verify_prompt_strategy():
-    # Selecting the Language Model
-    model = "text-davinci-002"
+#nltk.download('punkt')
+#nltk.download('averaged_perceptron_tagger')
 
-    # Data Preparation
-    control_tasks = ["What is 123 + 456?", "Calculate 789 * 123", "What is the square root of 144?"]
-    experimental_tasks = ["What is 321 + 654?", "Calculate 987 * 321", "What is the square root of 169?"]
+# Step 1: Define Scope
+# N/A
 
-    # Running the Control Condition
-    control_results = []
-    control_start_time = datetime.now()
+# Step 2: Prepare the Dataset
+prompts = []
+for i in range(100):
+    prompt_specificity = random.random() # Random float from 0 to 1
+    prompts.append(("Prompt "+str(i), prompt_specificity))
 
-    for task in control_tasks:
-        response = openai.Completion.create(engine=model, prompt=task, max_tokens=60)
-        control_results.append(response.choices[0].text.strip())
-        
-    control_end_time = datetime.now()
-    T1 = (control_end_time - control_start_time).total_seconds()
+# Step 3: Implement the Language Model
+def generate_response(prompt):
+    text = nltk.word_tokenize(prompt)
+    return random.choice(nltk.pos_tag(text))[0] # Return a random word from the prompt
 
-    # Implementing the Prompt Strategy
-    prompt_strategy = "Please provide the answer as a numerical figure only."
+# Step 4: Evaluate the Output
+def evaluate_unrelated(response):
+    return len(nltk.sent_tokenize(response)) # Count the number of sentences in a reply
 
-    # Running the Experimental Condition
-    experimental_results = []
-    experimental_start_time = datetime.now()
+# Step 5: Data Collection
+data = []
+for prompt, specificity in prompts:
+    response = generate_response(prompt)
+    unrelated = evaluate_unrelated(response)
+    data.append((specificity, unrelated))
 
-    for task in experimental_tasks:
-        response = openai.Completion.create(engine=model, prompt=f"{task}\n{prompt_strategy}", max_tokens=60)
-        experimental_results.append(response.choices[0].text.strip())
-        
-    experimental_end_time = datetime.now()
-    T2 = (experimental_end_time - experimental_start_time).total_seconds()
+# Write to CSV
+with open('data.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerows(data)
 
-    # Analysing the Results
-    percentage_reduction = ((T1 - T2) / T1) * 100
+# Step 6: Statistical Analysis
+X = [[i[0]] for i in data]
+Y = [[i[1]] for i in data]
 
-    # Documenting the Results
-    print(f"Control tasks results: {control_results}")
-    print(f"Experimental tasks results: {experimental_results}")
-    print(f"Percentage reduction in post-processing time: {percentage_reduction}%")
+# Splitting the data into training and testing data
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=0)
 
-# Repeating the Experiment
-# This function can be called multiple times with different sets of mathematical tasks
-verify_prompt_strategy()
+# Creating and training the model
+model = LinearRegression()
+model.fit(X_train, Y_train)
+
+# Step 7: Hypothesis Testing
+coeff_df = pd.DataFrame(model.coef_, columns=['Coefficient'])  
+print(coeff_df)
+
+# Step 8: Interpret Results
+# N/A
+
+# Step 9: Documentation and Reporting
+# N/A
