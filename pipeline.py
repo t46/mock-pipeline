@@ -17,13 +17,18 @@ def main(args):
     llm = OpenAI(model_name="gpt-4", temperature=0.9)  # TODO: define internally
     verification_result = 'False'
 
-    paper = args.path_to_paper
-    problem_discoverer = problem_discovery.ProblemDiscoverer(llm)
-    problem = problem_discoverer(paper)
-    print(problem)
-    logging.info('Problem: %s', problem)
+    # NOTE: for now, we assume that the problem is given as an input
+    # paper = args.path_to_paper
+    # problem_discoverer = problem_discovery.ProblemDiscoverer(llm)
+    # problem = problem_discoverer(paper)
+    # print(problem)
+    # logging.info('Problem: %s', problem)
 
-    del problem_discoverer
+    # del problem_discoverer
+    with open('input_data/problem.txt') as f:
+        problem = f.read()
+        print(problem)
+        logging.info('Problem: %s', problem)
 
     cnt = 0
 

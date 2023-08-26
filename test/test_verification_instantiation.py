@@ -17,7 +17,7 @@ def main():
 )
     llm = OpenAI(model_name="gpt-4", temperature=0.0)
 
-    with open('/Users/shiro/autoresearch/mock-pipeline/test/sample-data/verification_plan.txt') as f:
+    with open('/Users/shiro/autoresearch/mock-pipeline/test/sample-data/verification_plan_2.txt') as f:
         verification_plan = f.read()
         verification_instantiation.instantiate_verification_plan(verification_plan, llm)
 
