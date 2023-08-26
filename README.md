@@ -39,3 +39,25 @@
     ├── test_problem_discovery.py ........ Tests for the problem_discovery module.
     └── test_verification_execution.py ... Tests for the verification_execution module.
 ```
+## Quick Start
+### Create a Virtual Environment
+```shell
+conda create -n autores
+conda activate autores
+conda install -c conda-forge langchain
+```
+### Set Environment Variables
+```shell
+export OPENAI_API_KEY="your-api-key"
+```
+
+### Run Pipeline
+```shell
+python pipeline.py
+```
+
+### Run Each Module
+For example, to run the problem_discovery module:
+```shell
+python test/test_problem_discovery.py
+```
