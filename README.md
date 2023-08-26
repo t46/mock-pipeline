@@ -51,6 +51,12 @@ conda install -c conda-forge langchain
 export OPENAI_API_KEY="your-api-key"
 ```
 
+### Git Clone
+```shell
+git clone https://github.com/t46/mock-pipeline.git
+cd mock-pipeline
+```
+
 ### Run Pipeline
 ```shell
 python pipeline.py
