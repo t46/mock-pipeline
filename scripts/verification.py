@@ -1,48 +1,37 @@
-import time
-import openai
-from datetime import datetime
+from transformers import pipeline
 
-def verify_prompt_strategy():
-    # Selecting the Language Model
-    model = "text-davinci-002"
+# Instantiate the model
+llm = pipeline('text-generation')
 
-    # Data Preparation
-    control_tasks = ["What is 123 + 456?", "Calculate 789 * 123", "What is the square root of 144?"]
-    experimental_tasks = ["What is 321 + 654?", "Calculate 987 * 321", "What is the square root of 169?"]
+# Replace with your list of regular and direct questions. 
+regular_questions = ['What is the highest mountain in the world?', 'What is the capital of France?'] 
+direct_questions = ['Name the highest mountain in the world.', 'Tell me the capital of France.'] 
 
-    # Running the Control Condition
-    control_results = []
-    control_start_time = datetime.now()
+def run_verification(question_set):
+    lengths = []
+    responses = []
+    for question in question_set:
+        response = llm(question)[0]["generated_text"]
+        lengths.append(len(response))
+        responses.append(response)
+    return lengths, responses
 
-    for task in control_tasks:
-        response = openai.Completion.create(engine=model, prompt=task, max_tokens=60)
-        control_results.append(response.choices[0].text.strip())
-        
-    control_end_time = datetime.now()
-    T1 = (control_end_time - control_start_time).total_seconds()
+# Running the verification for regular questions
+R_r_lengths, R_r = run_verification(regular_questions)
 
-    # Implementing the Prompt Strategy
-    prompt_strategy = "Please provide the answer as a numerical figure only."
+# Running the verification for direct questions
+R_d_lengths, R_d = run_verification(direct_questions)
 
-    # Running the Experimental Condition
-    experimental_results = []
-    experimental_start_time = datetime.now()
+# Calculating the average length of responses for regular and direct questions.
+L_r_avg = sum(R_r_lengths) / len(R_r_lengths)
+L_d_avg = sum(R_d_lengths) / len(R_d_lengths)
 
-    for task in experimental_tasks:
-        response = openai.Completion.create(engine=model, prompt=f"{task}\n{prompt_strategy}", max_tokens=60)
-        experimental_results.append(response.choices[0].text.strip())
-        
-    experimental_end_time = datetime.now()
-    T2 = (experimental_end_time - experimental_start_time).total_seconds()
+# Verifying the hypothesis
+if L_d_avg < L_r_avg:
+    print("Hypothesis is supported.")
+else:
+    print("Hypothesis is not supported.")
 
-    # Analysing the Results
-    percentage_reduction = ((T1 - T2) / T1) * 100
+# Manual checks need to be performed by a human on responses R_r and R_d
 
-    # Documenting the Results
-    print(f"Control tasks results: {control_results}")
-    print(f"Experimental tasks results: {experimental_results}")
-    print(f"Percentage reduction in post-processing time: {percentage_reduction}%")
-
-# Repeating the Experiment
-# This function can be called multiple times with different sets of mathematical tasks
-verify_prompt_strategy()
+# Prepare a report summarizing the results of the tests and making suggestions about potential improvements.

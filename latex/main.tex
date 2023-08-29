@@ -1,21 +1,25 @@
 \documentclass{article}
-\usepackage{amsmath}
-\title{Improving Large Language Models' Output Formatting: An Experiment on Prompt Engineering}
-\author{Author Name}
-\date{\today}
+\usepackage[utf8]{inputenc}
+
+\title{Investigating the Use of a Direct Answer Mode in Large Language Models}
+\author{}
 
 \begin{document}
+
 \maketitle
 
 \begin{abstract}
-Large language models (LLMs) have transformed the landscape of automated text generation. Despite their success, a prevalent issue is their proclivity to generate outputs in formats that require manual post-processing. Especially in mathematical tasks, outputs consist of phrases from which the answer, often a numerical figure, must be isolated for evaluation. This inefficiency impedes the evaluation process and necessitates resolution. This paper investigates if implementing a prompt engineering strategy - instructing the LLM to deliver answers in a precise format - can abate the requirement for post-processing. However, the hypothesis that this strategy would significantly reduce the need for post-processing was found to be false.
+This paper investigates a specific problem related to the use of Large Language Models (LLMs), and in particular with GPT-4. The model, when fed with a prompt, occasionally produces extra sentences that do not directly relate to the instruction. These extraneous sentences necessitate some form of post-processing to evaluate the outputs, which could induce potential errors. This paper hypothesizes that implementing a "direct answer mode" in the LLM prompting could minimize unnecessary information in the model's output and reduce the need for intense post-processing. The investigation was conducted through several trials with a variety of questions to test whether this approach reduces the occurrence of unrelated text in the LLM's responses.
 \end{abstract}
 
 \section{Introduction}
-Large language models have proved instrumental in a range of automation tasks, from generating human-like texts to solving complex mathematical problems. Despite the widespread utility, a common issue that plagues these models relates to the formatting of their outputs. Often, the output generated necessitates manual post-processing for evaluative purposes, especially in mathematical contexts. This raises the issue of inefficiency, as the time and effort required for post-processing could be better dedicated to other tasks.
 
-Given this problem, this study sought to explore the possibility of reducing post-processing through a prompt engineering strategy. The hypothesis was that by explicitly instructing the LLM to provide answers in a predefined format, specifically, as lone numerical figures in the case of mathematical tasks, we could significantly streamline the evaluation process. This study aimed at empirically investigating this hypothesis to conclusively determine its validity. The resultant findings, however, contradicted our hypothesis, providing compelling evidence that this strategy does not sufficiently reduce the need for manual post-processing.
+Large Language Models (LLMs) are designed to generate text that models human language as closely as possible. As part of their design, they are given a text input, called a prompt, and generate text in response to that prompt. However, a notable issue arises in their usage: the presence of extraneous sentences unrelated to the original instructions that might require post-processing to evaluate and could lead to potential errors in the evaluation.
 
-This paper discusses the research problem in detail, the proposed solution, the adopted methods of testing the hypothesis, and the significant findings that emerged from this investigation.
+A simple example of this problem can be seen when the LLM is asked the question "What is 1 + 1?". A typical response from the LLM might be "The answer to that question is 2". The phrase "The answer to that question is" is an extra sentence and ideally, we would like the LLM to output only "2", a response directly answering the question.
+
+The investigation hypothesizes that framing prompts to the LLM in a "direct answer mode" could help in yielding more specific output. This means instructing the LLM to respond only with the required information. For example, instead of posing the question as "What is 1+1?", we phrase it as "Provide a direct answer mode calculation for 1+1.".
+
+This paper reports on the results of a experiment conducted to test this hypothesis, seeking to understand whether direct instructions to the LLM can reduce the need for post-processing and the occurrence of unrelated text in the LLM's responses.
 
 \end{document}
