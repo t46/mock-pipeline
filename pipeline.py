@@ -14,7 +14,7 @@ def main(args):
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s'
 )
-    llm = OpenAI(model_name="gpt-4", temperature=0.9)  # TODO: define internally
+    llm = OpenAI(model_name="gpt-4", temperature=0.0)  # TODO: define internally
     verification_result = 'False'
 
     paper = args.path_to_paper
