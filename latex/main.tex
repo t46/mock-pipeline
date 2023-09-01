@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Investigating the Use of a Direct Answer Mode in Large Language Models}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This paper investigates a specific problem related to the use of Large Language Models (LLMs), and in particular with GPT-4. The model, when fed with a prompt, occasionally produces extra sentences that do not directly relate to the instruction. These extraneous sentences necessitate some form of post-processing to evaluate the outputs, which could induce potential errors. This paper hypothesizes that implementing a "direct answer mode" in the LLM prompting could minimize unnecessary information in the model's output and reduce the need for intense post-processing. The investigation was conducted through several trials with a variety of questions to test whether this approach reduces the occurrence of unrelated text in the LLM's responses.
+\end{abstract}
+
+\section{Introduction}
+
+Large Language Models (LLMs) are designed to generate text that models human language as closely as possible. As part of their design, they are given a text input, called a prompt, and generate text in response to that prompt. However, a notable issue arises in their usage: the presence of extraneous sentences unrelated to the original instructions that might require post-processing to evaluate and could lead to potential errors in the evaluation.
+
+A simple example of this problem can be seen when the LLM is asked the question "What is 1 + 1?". A typical response from the LLM might be "The answer to that question is 2". The phrase "The answer to that question is" is an extra sentence and ideally, we would like the LLM to output only "2", a response directly answering the question.
+
+The investigation hypothesizes that framing prompts to the LLM in a "direct answer mode" could help in yielding more specific output. This means instructing the LLM to respond only with the required information. For example, instead of posing the question as "What is 1+1?", we phrase it as "Provide a direct answer mode calculation for 1+1.".
+
+This paper reports on the results of a experiment conducted to test this hypothesis, seeking to understand whether direct instructions to the LLM can reduce the need for post-processing and the occurrence of unrelated text in the LLM's responses.
+
+\end{document}

@@ -2,12 +2,24 @@ import logging
 from langchain import PromptTemplate
 
 template = """
-Background Information: Prompt engineering is a powerful technique to enhance ability of large language models. Probmpt engineering is a technique to generate a prompt to a large language model so that the language model can output a desired text.
-The technique is very useful because it does not require training to improve outputs in zero-shot way.
-How can we solve the problem below? Please output a detailed and very concrete hypothesis.
-Note that hypothesis is a statement that can be tested and answered in yes or no style.
+How can we solve the problem below? Please output multiple hypotheses in list format.
 -------------------------------------------------------------------
 {problem}
+"""
+
+hypothesis_selection_template = """
+Select the hypothesis that is easiest to test from among these hypotheses.
+-------------------------------------------------------------------
+{hypotheses}
+"""
+
+hypothesis_elaboration_template = """
+Please make the hypothesis below more specific and concrete with an example.
+
+Note:
+- Output a concrete example of your proposal.
+-------------------------------------------------------------------
+{hypothesis}
 """
 
 preivious_hypothesis_template = """
@@ -31,4 +43,10 @@ class HypothesisGenerator:
             prompt_text = preivious_hypothesis_template.format(previous_hypothesis=previous_hypothesis) + prompt_text
         logging.info('Hypothesis generation prompt: %s', prompt_text)
         hypothesis = self.llm(prompt_text)
+        logging.info('Hypothesis: %s', hypothesis)
+        hypothesis = self.llm(hypothesis_selection_template.format(hypotheses=hypothesis))
+        logging.info('Hypothesis Selection: %s', hypothesis)
+        hypothesis = self.llm(hypothesis_elaboration_template.format(problem=problem, hypothesis=hypothesis))
+        logging.info('Hypothesis Elaboration: %s', hypothesis)
+
         return hypothesis

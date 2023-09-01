@@ -26,6 +26,6 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--path_to_paper", type=str, default='input_data/paper.tex', help="path_to_paper")
+    parser.add_argument("--path_to_paper", type=str, default='input_data/problem.txt', help="path_to_paper")
     args = parser.parse_args()
     main(args)
