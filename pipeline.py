@@ -14,7 +14,7 @@ def main(args):
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s'
 )
-    llm = OpenAI(model_name="gpt-4", temperature=0.9)  # TODO: define internally
+    llm = OpenAI(model_name="gpt-4", temperature=0.0)  # TODO: define internally
     verification_result = 'False'
 
     # NOTE: for now, we assume that the problem is given as an input
@@ -25,7 +25,7 @@ def main(args):
     # logging.info('Problem: %s', problem)
 
     # del problem_discoverer
-    with open('input_data/problem.txt') as f:
+    with open('input_data/problem_2.txt') as f:
         problem = f.read()
         print(problem)
         logging.info('Problem: %s', problem)

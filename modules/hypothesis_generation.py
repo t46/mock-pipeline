@@ -2,9 +2,7 @@ import logging
 from langchain import PromptTemplate
 
 template = """
-How can we solve the problem below? Please output a detailed and very concrete multiple hypothesis.
-Note that hypothesis is a statement that can be tested and answered in yes or no style.
-Please output multiple specific hypotheses to solve this problem in list format.
+How can we solve the problem below? Please output multiple hypotheses in list format.
 -------------------------------------------------------------------
 {problem}
 """
@@ -16,13 +14,12 @@ Select the hypothesis that is easiest to test from among these hypotheses.
 """
 
 hypothesis_elaboration_template = """
-The problem to solve is this:
-{problem}
+Please make the hypothesis below more specific and concrete with an example.
 
-The hypothesis for this problem is this:
+Note:
+- Output a concrete example of your proposal.
+-------------------------------------------------------------------
 {hypothesis}
-
-Given them, please make the hypothesis more specific and concrete with an example of the solution.
 """
 
 preivious_hypothesis_template = """
