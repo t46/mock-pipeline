@@ -79,3 +79,4 @@ def instantiate_verification_plan(verification_plan, llm):
     with open('scripts/verification.py', 'w') as f:
         f.write(executable_verification_plan)
     install_dependencies(executable_verification_plan, llm)
+    return executable_verification_plan
