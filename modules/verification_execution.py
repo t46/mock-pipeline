@@ -28,11 +28,12 @@ class VerificationExecutor:
         executable_verification_plan = self.prepare_verification(problem, hypothesis)
         process = subprocess.Popen(["python", "scripts/verification.py"], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
         _, stderr = process.communicate()
-        if process.returncode != 0:
-            error_message = stderr.decode('utf-8')
-            prompt_text = prompt.format(executable_verification_plan=executable_verification_plan, error_message=error_message)
-            logging.info('Verification instantiation prompt: %s', prompt_text)
-            updated_verification_code = extract_python_blocks(self.llm(prompt_text))
-            with open('scripts/verification.py', 'w') as f:
-                f.write(updated_verification_code)
+        # NOTE: Commented out for now becuase it works without it.
+        # if process.returncode != 0:
+        #     error_message = stderr.decode('utf-8')
+        #     prompt_text = prompt.format(executable_verification_plan=executable_verification_plan, error_message=error_message)
+        #     logging.info('Verification instantiation prompt: %s', prompt_text)
+        #     updated_verification_code = extract_python_blocks(self.llm(prompt_text))
+        #     with open('scripts/verification.py', 'w') as f:
+        #         f.write(updated_verification_code)
         return 'Hypothesis is False'
