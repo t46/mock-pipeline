@@ -1,25 +1,19 @@
 Verification plan:  Verification Plan:
 
 1. Data Collection:
-   1.1. Collect a large dataset of prompts and their corresponding correct responses. This dataset will be used to evaluate the performance of the LLM with the old and new prompt strategies.
-   1.2. Divide the dataset into two parts: a training set and a test set. The training set will be used to fine-tune the LLM with the new prompt strategy, and the test set will be used to evaluate the performance of the LLM.
+   1.1. Collect a diverse set of questions that can be used as prompts. These questions should cover a wide range of topics and should be such that they have a direct answer. For example, "What is the capital of France?", "Who wrote 'To Kill a Mockingbird'?", "What is the square root of 16?", etc.
+   1.2. For each question, create a modified version of the prompt by adding "Give a direct answer:" at the beginning. For example, "Give a direct answer: What is the capital of France?".
+2. Model Testing:
+   2.1. Input each original prompt (P1) into the LLM and record the response (R1).
+   2.2. Input each modified prompt (P2) into the LLM and record the response (R2).
+3. Data Analysis:
+   3.1. For each pair of responses (R1 and R2), calculate the length of the response in terms of the number of words.
+   3.2. Compare the length of R1 and R2. If the length of R2 is less than or equal to the length of R1, it indicates that the modified prompt may have led to a more concise response.
+   3.3. Additionally, evaluate the directness of the response. This can be done by checking if the first sentence of the response contains the direct answer to the question. For example, if the question is "What is the capital of France?", the first sentence of the response should contain "Paris". Count the number of instances where this is true for R2 and compare it with the number of instances where this is true for R1.
+4. Statistical Analysis:
+   4.1. Perform a statistical test (such as a paired t-test) to determine if the differences in response length and directness between R1 and R2 are statistically significant.
+5. Conclusion:
+   5.1. If the statistical test shows a significant difference with the modified prompts leading to shorter and more direct responses, then the hypothesis can be considered verified.
+   5.2. If there is no significant difference, or if the original prompts lead to shorter and more direct responses, then the hypothesis is not verified.
 
-2. Baseline Evaluation:
-   2.1. Use the old prompt strategy to generate responses to the prompts in the test set.
-   2.2. For each generated response, calculate the proportion of extraneous sentences (E_old) and the relevance score (R_old). This can be done manually or by developing an automated metric. For example, the proportion of extraneous sentences can be calculated as the number of extraneous sentences divided by the total number of sentences in the response, and the relevance score can be calculated using cosine similarity between the input instructions and the output.
-
-3. Implementation of the New Prompt Strategy:
-   3.1. Fine-tune the LLM on the training set using the new prompt strategy.
-   3.2. Use the fine-tuned LLM to generate responses to the prompts in the test set.
-
-4. Evaluation of the New Prompt Strategy:
-   4.1. For each generated response, calculate the proportion of extraneous sentences (E_new) and the relevance score (R_new) in the same way as in step 2.2.
-
-5. Comparison and Hypothesis Testing:
-   5.1. Compare E_old and E_new. If E_new <= 0.8 * E_old, then the new prompt strategy has successfully reduced the proportion of extraneous sentences.
-   5.2. Compare R_old and R_new. If R_new >= 1.15 * R_old, then the new prompt strategy has successfully increased the relevance score.
-   5.3. If both conditions in steps 5.1 and 5.2 are met, then the hypothesis is confirmed. If not, the hypothesis is rejected.
-
-6. Reporting Results:
-   6.1. Document the results of the hypothesis testing, including the calculated values of E_old, E_new, R_old, and R_new, and whether the hypothesis was confirmed or rejected.
-   6.2. If the hypothesis was confirmed, provide recommendations for implementing the new prompt strategy in the LLM. If the hypothesis was rejected, provide insights into why the new prompt strategy did not work as expected and suggest potential modifications for future testing.
+This verification plan is feasible as it only requires the use of the existing LLM and does not require the creation of any new tools or resources. It is also detailed and concrete, providing a step-by-step procedure that can be followed to test the hypothesis.

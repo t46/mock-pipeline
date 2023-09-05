@@ -2,26 +2,26 @@ import logging
 from langchain import PromptTemplate
 
 template = """
-The problem to besolved is:
-{problem}
-
-The hypothesis to solve the problem is:
-{hypothesis}
-
-Given above, how can we verify the hypothesis? Please give us the detailed verification plan in strucured sentences. 
+Given the below problem and hypothesis to solve the problem, how can we verify the hypothesis? Please give us the detailed verification plan in strucured sentences. 
 Please be detailed and very concrete so that the procedure should be executable by a large language model and computer. Write down the step-by-step procedure.
 However, the verification plan should be as detailed as possible. If necessary, a single task can be broken down into multiple subtasks and listed hierarchically as a whole.
 Also, the verification plan must be feasible. Therefore, you can use what you already have and do not need to create anything new. Make your validation plan as realistic as possible.
--------------------------------------------------------------------
+
+Problem:
+{problem}
+
+Hypothesis:
+{hypothesis}
 """
 
 template_for_hypothesis_formulation = """
-Hypothesis: {hypothesis}
-You will now test this hypothesis in the future. The hypothesis must be specific so that it can be tested. To this end, please formulate or model your hypothesis in concrete terms. 
+You will test the hypothesis below. The hypothesis must be specific so that it can be tested. To this end, please formulate or model your hypothesis in concrete terms. 
 You must also express all the expressions that come up in the hypothesis in text, physical entities, mathematical formulas, programs, or any appropriate expression depending on the verification method.
 If you are using a mathematical process in the verification, the hypothesis should also be expressed in mathematical terms, and if you are proposing something, you will need to define its concrete substance.
 Strictly following these instructions, output both the original hypothesis and a formulated hypothesis, a representation of the hypothesis, or a model of the hypothesis.
--------------------------------------------------------------------
+
+Hypothesis:
+{hypothesis}
 """
 
 prompt = PromptTemplate(

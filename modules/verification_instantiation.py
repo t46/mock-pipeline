@@ -12,24 +12,28 @@ Instructions that must be followed: Please follow strictly the following points.
 
 You are an excellent engineer.
 
-Instruction: Given verification plan below, please output a python code to execute the verification plan. Note that you must obey the instructions above.
-The verification plan is:
+Instruction: Given verification plan below, please output a python code to execute the verification plan below. Note that you must obey the instructions above.
+
+Verification plan:
 {verification_plan}
 
 """
 
 template_for_refinement = """
-The verification plan is this:
-{verification_code}
-
-Please regenerate the same python code except for the following modifications:
+Please regenerate the same python code below except for the following modifications:
 - **DO NOT** include `api-key` in the code since it has already been specified!
 - **DO NOT** output placeholder or just leave a comments without implementation! Make sure you write the implementation down to the contents of the function.
 - Please write a proper implementation where you **DO NOT** only end up with comments.
+
+Python code:
+{verification_code}
 """
 
 template_for_install_dependencies = """
-Output a executable python code that install the required package to run the code below:
+Output a executable python code that install the required package to run the code below. 
+Make sure that the code for installing the package is executable and does not cause any errors as a python script not as a jupyter notebook or command line.
+
+Python code:
 {executable_verification_plan}
 """
 

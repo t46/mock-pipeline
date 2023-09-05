@@ -5,9 +5,13 @@ from langchain import PromptTemplate
 import logging
 
 template_for_error_handling = """
+When I ran the python code below, I got the error below. Please output improved code to avoid this error.
+Please output the entire code without omission, including the parts I have already provided.
+
+Python code:
 {executable_verification_plan}
-When I ran the code above, I got the following error Please output improved code to avoid this error.
-Please output the entire code without omission, including the parts I have already provided
+
+Error message:
 {error_message}
 """
 
@@ -26,14 +30,16 @@ class VerificationExecutor:
 
     def __call__(self, problem, hypothesis):
         executable_verification_plan = self.prepare_verification(problem, hypothesis)
+        # subprocess.run(["python", "scripts/verification.py"])
+        # NOTE: Commented out for now becuase it works without it.
         process = subprocess.Popen(["python", "scripts/verification.py"], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
         _, stderr = process.communicate()
-        # NOTE: Commented out for now becuase it works without it.
-        # if process.returncode != 0:
-        #     error_message = stderr.decode('utf-8')
-        #     prompt_text = prompt.format(executable_verification_plan=executable_verification_plan, error_message=error_message)
-        #     logging.info('Verification instantiation prompt: %s', prompt_text)
-        #     updated_verification_code = extract_python_blocks(self.llm(prompt_text))
-        #     with open('scripts/verification.py', 'w') as f:
-        #         f.write(updated_verification_code)
+        if process.returncode != 0:
+            error_message = stderr.decode('utf-8')
+            prompt_text = prompt.format(executable_verification_plan=executable_verification_plan, error_message=error_message)
+            logging.info('Verification instantiation prompt: %s', prompt_text)
+            updated_verification_code = extract_python_blocks(self.llm(prompt_text))
+            with open('scripts/verification.py', 'w') as f:
+                f.write(updated_verification_code)
+            subprocess.run(["python", "scripts/verification.py"])
         return 'Hypothesis is False'
