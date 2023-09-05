@@ -4,15 +4,11 @@ import re
 import subprocess
 
 template = """
+You are a helpful assistant who should strictly adhere to the following guidelines:
+- **DO NOT** include `api-key` in the code, as it has already been specified.
+- **DO NOT** output placeholders, end up with comments, or use just a sequence of dots without fully implementing the contents of the code. Ensure that you fully implement the contents.
 
-You are a helpful assistant which absolutely should fulfill all of the following.
-Instructions that must be followed: Please follow strictly the following points.
-- **DO NOT** include `your-api-key` in the code since it has already been specified!
-- **DO NOT** output placeholder or just leave a comments without implementation! Make sure you write the implementation down to the contents of the function.
-
-You are an excellent engineer.
-
-Instruction: Given verification plan below, please output a python code to execute the verification plan below. Note that you must obey the instructions above.
+You are an excellent engineer. In accordance with the verification plan provided below, please output Python code to execute said plan. Note that you must comply with the instructions above.
 
 Verification plan:
 {verification_plan}
@@ -20,18 +16,17 @@ Verification plan:
 """
 
 template_for_refinement = """
-Please regenerate the same python code below except for the following modifications:
-- **DO NOT** include `api-key` in the code since it has already been specified!
-- **DO NOT** output placeholder or just leave a comments without implementation! Make sure you write the implementation down to the contents of the function.
-- Please write a proper implementation where you **DO NOT** only end up with comments.
+Please regenerate the same Python code below except for the following modifications:
+- **DO NOT** include `api-key` in the code, as it has already been specified.
+- **DO NOT** output placeholders, end up with comments, or use just a sequence of dots without fully implementing the contents of the code. Ensure that you fully implement the contents.
 
 Python code:
 {verification_code}
 """
 
 template_for_install_dependencies = """
-Output a executable python code that install the required package to run the code below. 
-Make sure that the code for installing the package is executable and does not cause any errors as a python script not as a jupyter notebook or command line.
+Output an executable Python code that installs the required package to run the code below. 
+Make sure that the installation code is executable and does not cause any errors when run as a Python script, rather than as a Jupyter Notebook or from the command line.
 
 Python code:
 {executable_verification_plan}

@@ -2,10 +2,10 @@ import logging
 from langchain import PromptTemplate
 
 template = """
-Given the below problem and hypothesis to solve the problem, how can we verify the hypothesis? Please give us the detailed verification plan in strucured sentences. 
-Please be detailed and very concrete so that the procedure should be executable by a large language model and computer. Write down the step-by-step procedure.
-However, the verification plan should be as detailed as possible. If necessary, a single task can be broken down into multiple subtasks and listed hierarchically as a whole.
-Also, the verification plan must be feasible. Therefore, you can use what you already have and do not need to create anything new. Make your validation plan as realistic as possible.
+Given the problem and accompanying hypothesis below, how can we verify the hypothesis? Please provide a detailed verification plan composed of structured sentences. 
+Ensure that the plan is sufficiently detailed and concrete so that it can be executed by a large language model and computer. 
+Outline the procedure in a step-by-step manner. If necessary, break down a single task into multiple sub-tasks and list them hierarchically. 
+The verification plan should be realistic and feasible, making use of existing resources rather than requiring the creation of new ones.
 
 Problem:
 {problem}
@@ -15,10 +15,9 @@ Hypothesis:
 """
 
 template_for_hypothesis_formulation = """
-You will test the hypothesis below. The hypothesis must be specific so that it can be tested. To this end, please formulate or model your hypothesis in concrete terms. 
-You must also express all the expressions that come up in the hypothesis in text, physical entities, mathematical formulas, programs, or any appropriate expression depending on the verification method.
-If you are using a mathematical process in the verification, the hypothesis should also be expressed in mathematical terms, and if you are proposing something, you will need to define its concrete substance.
-Strictly following these instructions, output both the original hypothesis and a formulated hypothesis, a representation of the hypothesis, or a model of the hypothesis.
+To test the hypothesis below, ensure that it is specific enough to be testable. Formulate or model your hypothesis in concrete terms. Clearly express all elements of the hypothesis using text, physical entities, mathematical formulas, computer programs, or any other suitable forms, depending on the verification method you're using. 
+If your verification involves a mathematical process, also articulate the hypothesis in mathematical terms. If you're proposing something new, define it in concrete terms. 
+Once you've followed these guidelines, present both the original hypothesis and your refined version, whether that is a formulated hypothesis, a representation, or a model.
 
 Hypothesis:
 {hypothesis}
