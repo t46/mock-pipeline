@@ -1,4 +1,4 @@
-from modules import problem_discovery, hypothesis_generation, verification_execution, paper_writing
+from modules import hypothesis_generation, verification_execution, paper_writing
 from langchain.llms import OpenAI
 import argparse
 import logging
