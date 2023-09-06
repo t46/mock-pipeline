@@ -1,7 +1,6 @@
-import logging
-from langchain import PromptTemplate
 
-template = """
+
+hypothesis_candidates_template = """
 How can we solve the problem described below? Please provide multiple hypotheses in list format.
 
 Problem:
@@ -22,32 +21,28 @@ Hypothesis:
 {hypothesis}
 """
 
-preivious_hypothesis_template = """
-The previous hypothesis listed below is incorrect. Please provide a more accurate hypothesis, supported by a detailed and concrete example.
-
-Previous Hypothesis:
-{previous_hypothesis}
-"""
-
-prompt = PromptTemplate(
-    template=template,
-    input_variables=["problem"]
-)
 
 class HypothesisGenerator:
     def __init__(self, llm):
         self.llm = llm
+        self.outputs = {}
     
-    def __call__(self, problem, previous_hypothesis=None):
-        prompt_text = prompt.format(problem=problem)
-        if previous_hypothesis is not None:
-            prompt_text = preivious_hypothesis_template.format(previous_hypothesis=previous_hypothesis) + prompt_text
-        logging.info('Hypothesis generation prompt: %s', prompt_text)
-        hypothesis = self.llm(prompt_text)
-        logging.info('Hypothesis: %s', hypothesis)
-        hypothesis = self.llm(hypothesis_selection_template.format(hypotheses=hypothesis))
-        logging.info('Hypothesis Selection: %s', hypothesis)
-        hypothesis = self.llm(hypothesis_elaboration_template.format(problem=problem, hypothesis=hypothesis))
-        logging.info('Hypothesis Elaboration: %s', hypothesis)
+    def __call__(self, problem):
+        hypothesis_candidates = self.llm(hypothesis_candidates_template.format(problem=problem))
+        print(hypothesis_candidates)
 
-        return hypothesis
+        selected_hypothesis = self.llm(hypothesis_selection_template.format(hypotheses=hypothesis_candidates))
+        print(selected_hypothesis)
+
+        elaborated_hypothesis = self.llm(hypothesis_elaboration_template.format(problem=problem, hypothesis=selected_hypothesis))
+        print(elaborated_hypothesis)
+
+        hypothesis_data = {
+            'hypothesis_candidates': hypothesis_candidates,
+            'selected_hypothesis': selected_hypothesis,
+            'hypothesis': elaborated_hypothesis,
+        }
+
+        self.outputs.update(hypothesis_data)
+
+        return hypothesis_data

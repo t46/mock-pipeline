@@ -17,8 +17,8 @@ def main():
 )
     llm = OpenAI(model_name="gpt-4", temperature=0.0)
 
-    with open('/Users/shiro/autoresearch/mock-pipeline/test/sample-data/problem_2.txt') as f1:
-        with open('/Users/shiro/autoresearch/mock-pipeline/test/sample-data/hypothesis_2.txt') as f2:
+    with open('/Users/shiro/autoresearch/mock-pipeline/test/sample-data/problem.txt') as f1:
+        with open('/Users/shiro/autoresearch/mock-pipeline/test/sample-data/hypothesis.txt') as f2:
             problem = f1.read()
             hypothesis = f2.read()
             verification_design.design_verification_plan(problem, hypothesis, llm)
