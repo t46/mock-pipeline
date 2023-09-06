@@ -1,46 +1,46 @@
-from modules import hypothesis_generation, verification_execution, paper_writing
+from modules import hypothesis_generation, verification_execution
 from langchain.llms import OpenAI
-import argparse
-import logging
 import datetime
 import warnings
+import os
 
 warnings.simplefilter('ignore')
 
+def save_outputs(outputs, now):
+    base_path_to_save_outputs = f'outputs/{now}'
+    os.makedirs(base_path_to_save_outputs, exist_ok=True)
+    for key, value in outputs.items():
+        if key == 'verification_code' or key == 'package_install_code' or key == 'verification_code_error_fixed':
+            extension = 'py'
+        else:
+            extension = 'txt'
+        with open(f'{base_path_to_save_outputs}/{key}.{extension}', 'w') as f:
+            f.write(value)
+
 def main():
     now = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-    logging.basicConfig(
-        filename=f'logs/{now}.log',
-        level=logging.INFO,
-        format='%(asctime)s - %(levelname)s - %(message)s'
-)
     llm = OpenAI(model_name="gpt-4", temperature=0.0)
 
-    with open('input_data/problem_2.txt') as f:
+    with open('input_data/problem.txt') as f:
         problem = f.read()
         print(problem)
-        logging.info('Problem: %s', problem)
 
+    outputs = {}
 
+    # Hypothesis Generation
     hypothesis_generator = hypothesis_generation.HypothesisGenerator(llm)
-    hypothesis = hypothesis_generator(problem)
-    print(hypothesis)
-    logging.info('Hypothesis: %s', hypothesis)
-
+    hypothesis = hypothesis_generator(problem)['hypothesis']
+    outputs.update(hypothesis_generator.outputs)
     del hypothesis_generator
 
+    # Verification Execution
     verification_executor = verification_execution.VerificationExecutor(llm)
-    verification_result = verification_executor(problem, hypothesis)
-    logging.info('Verification Result: %s', verification_result)
-
+    verification_executor(problem, hypothesis)
+    outputs.update(verification_executor.outputs)
     del verification_executor
 
-    verification_plan = 'TODO: define internally'
-
-    paper_writer = paper_writing.PaperWriter()
-    latex_content = paper_writer(problem, hypothesis, verification_plan, verification_result, llm)  # TODO: intermediate_outputs
-    print(latex_content)
-    logging.info('LaTeX Content: %s', latex_content)
+    # Save outputs
+    save_outputs(outputs, now)
 
 if __name__ == "__main__":
     main()

@@ -3,7 +3,6 @@ sys.path.append('/Users/shiro/autoresearch/mock-pipeline')
 import warnings
 from modules import hypothesis_generation
 from langchain.llms import OpenAI
-import argparse
 import logging
 import datetime
 
@@ -18,10 +17,10 @@ def main():
 )
     llm = OpenAI(model_name="gpt-4", temperature=0.0)
 
-    with open('/Users/shiro/autoresearch/mock-pipeline/test/sample-data/problem_2.txt') as f:
+    with open('/Users/shiro/autoresearch/mock-pipeline/test/sample-data/problem.txt') as f:
         problem = f.read()
         hypothesis_generator = hypothesis_generation.HypothesisGenerator(llm)
-        hypothesis = hypothesis_generator(problem)
+        hypothesis = hypothesis_generator(problem)['hypothesis']
     print(hypothesis)
     logging.info('Hypothesis: %s', hypothesis)
 

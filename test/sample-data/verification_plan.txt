@@ -1,49 +1,19 @@
-1. Selecting the Language Model:
-    
-    1.1 Identify the large language model (LLM) that will be used for this experiment. This could be a model such as GPT-3, BERT, etc. The selection will depend on the specific language model in use for your application.
-    
-2. Data Preparation:
-    
-    2.1 Choose a set of mathematical tasks that will be given to the LLM. Ensure that these tasks are complex enough that the LLM's output would typically need to be post-processed.
-    
-    2.2 Divide the tasks into two groups - one for the control condition (without the prompt strategy), and one for the experimental condition (with the prompt strategy). Ensure that the tasks are evenly matched in terms of difficulty and complexity.
-    
-3. Running the Control Condition:
-    
-    3.1 Use the LLM to generate answers to the mathematical tasks from the control group.
-    
-    3.2 The control group will not be given any specific prompt formatting instruction.
-    
-    3.3 Record the raw output of the LLM.
-    
-    3.4 Manually post-process the output of the LLM to isolate the answer as required by the evaluation process. Record the time taken for this post-processing. This will be T1.
-    
-4. Implementing the Prompt Strategy:
-    
-    4.1 Develop a strategy for structured prompting that instructs the LLM to output answers in a specific format. For example, this could be a specific instruction such as "Please provide the answer as a numerical figure only."
-    
-5. Running the Experimental Condition:
-    
-    5.1 Use the LLM to generate answers to the mathematical tasks from the experimental group.
-    
-    5.2 The experimental group will be given the structured prompt strategy developed in step 4.
-    
-    5.3 Record the raw output of the LLM.
-    
-    5.4 Manually post-process the output of the LLM to isolate the answer as required by the evaluation process. Record the time taken for this post-processing. This will be T2.
-    
-6. Analysing the Results:
-    
-    6.1 Calculate the percentage reduction in post-processing time using the formula ((T1 - T2)/T1) * 100.
-    
-    6.2 If the percentage reduction is greater than or equal to 20%, then the hypothesis is confirmed. If it is less than 20%, then the hypothesis is not confirmed.
-    
-7. Documenting the Results:
-    
-    7.1 Write a detailed report on the procedure, the calculations, and the results obtained.
-    
-    7.2 Draw conclusions on the effectiveness of the structured prompt strategy.
-    
-8. Repeating the Experiment:
-    
-    8.1 In order to make sure the results obtained are reliable, this experiment should be repeated multiple times with different sets of mathematical tasks.
+Verification plan:  Verification Plan:
+
+1. Data Collection:
+   1.1. Collect a diverse set of questions that can be used as prompts. These questions should cover a wide range of topics and should be such that they have a direct answer. For example, "What is the capital of France?", "Who wrote 'To Kill a Mockingbird'?", "What is the square root of 16?", etc.
+   1.2. For each question, create a modified version of the prompt by adding "Give a direct answer:" at the beginning. For example, "Give a direct answer: What is the capital of France?".
+2. Model Testing:
+   2.1. Input each original prompt (P1) into the LLM and record the response (R1).
+   2.2. Input each modified prompt (P2) into the LLM and record the response (R2).
+3. Data Analysis:
+   3.1. For each pair of responses (R1 and R2), calculate the length of the response in terms of the number of words.
+   3.2. Compare the length of R1 and R2. If the length of R2 is less than or equal to the length of R1, it indicates that the modified prompt may have led to a more concise response.
+   3.3. Additionally, evaluate the directness of the response. This can be done by checking if the first sentence of the response contains the direct answer to the question. For example, if the question is "What is the capital of France?", the first sentence of the response should contain "Paris". Count the number of instances where this is true for R2 and compare it with the number of instances where this is true for R1.
+4. Statistical Analysis:
+   4.1. Perform a statistical test (such as a paired t-test) to determine if the differences in response length and directness between R1 and R2 are statistically significant.
+5. Conclusion:
+   5.1. If the statistical test shows a significant difference with the modified prompts leading to shorter and more direct responses, then the hypothesis can be considered verified.
+   5.2. If there is no significant difference, or if the original prompts lead to shorter and more direct responses, then the hypothesis is not verified.
+
+This verification plan is feasible as it only requires the use of the existing LLM and does not require the creation of any new tools or resources. It is also detailed and concrete, providing a step-by-step procedure that can be followed to test the hypothesis.
