@@ -2,30 +2,31 @@ import logging
 from langchain import PromptTemplate
 
 template = """
-How can we solve the problem below? Please output multiple hypotheses in list format.
--------------------------------------------------------------------
+How can we solve the problem described below? Please provide multiple hypotheses in list format.
+
+Problem:
 {problem}
 """
 
 hypothesis_selection_template = """
-Select the hypothesis that is easiest to test from among these hypotheses.
--------------------------------------------------------------------
+Please select the easiest-to-test hypothesis from among the hypotheses below.
+
+Hypotheses:
 {hypotheses}
 """
 
 hypothesis_elaboration_template = """
-Please make the hypothesis below more specific and concrete with an example.
+Please make the hypothesis below more specific by providing a concrete example.
 
-Note:
-- Output a concrete example of your proposal.
--------------------------------------------------------------------
+Hypothesis:
 {hypothesis}
 """
 
 preivious_hypothesis_template = """
-Previous Hypothesis: {previous_hypothesis}
-The previous hypothesis is not true. Please output a detailed and very concrete better hypothesis.
--------------------------------------------------------------------
+The previous hypothesis listed below is incorrect. Please provide a more accurate hypothesis, supported by a detailed and concrete example.
+
+Previous Hypothesis:
+{previous_hypothesis}
 """
 
 prompt = PromptTemplate(

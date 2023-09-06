@@ -3,7 +3,6 @@ sys.path.append('/Users/shiro/autoresearch/mock-pipeline')
 import warnings
 from modules import verification_execution
 from langchain.llms import OpenAI
-import argparse
 import logging
 import datetime
 
@@ -18,10 +17,12 @@ def main():
 )
     llm = OpenAI(model_name="gpt-4", temperature=0.0)
 
-    with open('/Users/shiro/autoresearch/mock-pipeline/test/sample-data/hypothesis.txt') as f:
-        problem = f.read()
-        verification_executor = verification_execution.VerificationExecutor(llm)
-        verification_executor(problem, llm)
+    with open('/Users/shiro/autoresearch/mock-pipeline/test/sample-data/problem_2.txt') as f1:
+        with open('/Users/shiro/autoresearch/mock-pipeline/test/sample-data/hypothesis_2.txt') as f2:
+            problem = f1.read()
+            hypothesis = f2.read()
+            verification_executor = verification_execution.VerificationExecutor(llm)
+            verification_executor(problem, hypothesis)
 
 if __name__ == "__main__":
     main()
