@@ -1,15 +1,13 @@
 Background:
-We use a Large Language Model (LLM), in particular, GPT-4, which takes any text as input and outputs some text. We input instructions to the LLM in text, which is called prompt, to the LLM, and the LLM outputs text in response to those instructions.
+We use a Large Language Model (LLM), specifically GPT-4, which takes any text as input and outputs text in response. We input instructions, called prompts, to the LLM, and the LLM generates text based on those instructions.
 
 Problem:
-The problem is that the language model may also output sentences that are not directly related to the instructions. 
-For example, suppose you enter the sentence "What is 1 + 1?" into the LLM. 
-At this point, the LLM will often respond, "The answer to that question is 2". In this answer statement, what we really want is the "2" part. The sentence "The answer to that question is" is an extra sentence, and we want the LLM to output only the part that directly answers the question, not the extra sentence.
+The issue is that the large language model may output sentences not directly related to the instructions. 
+For example, if you enter the sentence "What is 1 + 1?" into the LLM, it will often respond with "The answer to that question is 2." In this response, what we really want is just the "2" part. The sentence "The answer to that question is" is extraneous, and we would prefer the LLM to output only the part that directly related to the question.
 
-The reason this is problematic is that the we must do some post-processing to evaluate the output sentences. For example, let's say you want to evaluate LLM's performance on a dataset of math problems. Suppose a sample is a question "What is 1 + 1?" paired with the correct answer "2". To evaluate the LLM's performance on this, we must examine whether the LLM's answer matches the correct answer. At this point, if the LLM outputs an extra sentence other than "2," even if the answer is actually correct, it may be judged incorrect because of the apparent mismatch.
-However, if you try to address this in post-processing, you will have to depend on the problem. Also, it is difficult to deal with this in a predefined post-processing method, since it is not known in advance what kind of text will be output in areas that are not directly related to the question.
+The reason this is problematic is that we must perform post-processing to evaluate the output. For instance, if you want to evaluate the LLM's performance on a dataset of math problems, and a sample is a question "What is 1 + 1?" paired with the correct answer "2", we must check whether the LLM's answer matches "2". If the LLM outputs an extra sentence besides "2," even if the answer is actually correct, it may be judged as incorrect due to the apparent mismatch.
+It is challenging to address this issue with a predefined post-processing method, as it is not known in advance what kind of extraneous text will be output.
 
-Examples:
-Question: "What is 1 + 1?", Answer with Extra sentence: "The answer is 2", Answer: "2"
-Question: "What is the sum of 1 and 1?", Answer with Extra sentence: "The answer to the question is 2", Answer: "2"
-Question: "What is the highest mountain in the world?", Answer with Extra sentence: "The highest mountain is Mount Everest", Answer: "Mount Everest"
+To sum up, the problems are as follows:
+- The large language model outputs sentences that are not directly related to the instructions.
+- Predefined post-processing methods are problem/answer-specific and not general.
