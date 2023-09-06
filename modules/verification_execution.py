@@ -36,14 +36,16 @@ class VerificationExecutor:
 
     def __call__(self, problem, hypothesis):
         verification_code = self.prepare_verification(problem, hypothesis)['verification_code']
-        process = subprocess.Popen(["python", "scripts/verification.py"], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
-        _, stderr = process.communicate()
-        if process.returncode != 0:
-            error_message = stderr.decode('utf-8')
-            updated_verification_code = extract_python_blocks(self.llm(error_handling_prompt.format(executable_verification_plan=verification_code, error_message=error_message)))
-            print('Updated verification code: ', updated_verification_code)
+        subprocess.run(["python", "scripts/verification.py"])
+        # NOTE: This is commented out just for the sake of the demo.
+        # process = subprocess.Popen(["python", "scripts/verification.py"], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+        # _, stderr = process.communicate()
+        # if process.returncode != 0:
+        #     error_message = stderr.decode('utf-8')
+        #     updated_verification_code = extract_python_blocks(self.llm(error_handling_prompt.format(executable_verification_plan=verification_code, error_message=error_message)))
+        #     print('Updated verification code: ', updated_verification_code)
 
-            self.outputs['verification_code_updated'] = updated_verification_code
-            with open('scripts/verification.py', 'w') as f:
-                f.write(updated_verification_code)
-            subprocess.run(["python", "scripts/verification.py"])
+        #     self.outputs['verification_code_updated'] = updated_verification_code
+        #     with open('scripts/verification.py', 'w') as f:
+        #         f.write(updated_verification_code)
+        #     subprocess.run(["python", "scripts/verification.py"])
