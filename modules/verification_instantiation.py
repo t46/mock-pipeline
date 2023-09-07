@@ -25,6 +25,7 @@ Python code:
 prompt_package_install = """
 Output an executable Python code that installs the required package to run the code below. 
 Make sure that the installation code is executable and does not cause any errors when run as a Python script, rather than as a Jupyter Notebook or from the command line.
+Be sure to import all necessary libraries, including standard libraries, into the generated code.
 Output only the code to install the package, not the code to run the package.
 
 Python code:
