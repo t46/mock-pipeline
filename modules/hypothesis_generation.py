@@ -34,13 +34,14 @@ class HypothesisGenerator:
         selected_hypothesis = self.llm(hypothesis_selection_template.format(hypotheses=hypothesis_candidates))
         print(selected_hypothesis)
 
-        elaborated_hypothesis = self.llm(hypothesis_elaboration_template.format(problem=problem, hypothesis=selected_hypothesis))
-        print(elaborated_hypothesis)
+        # elaborated_hypothesis = self.llm(hypothesis_elaboration_template.format(problem=problem, hypothesis=selected_hypothesis))
+        # print(elaborated_hypothesis)
 
         hypothesis_data = {
             'hypothesis_candidates': hypothesis_candidates,
-            'selected_hypothesis': selected_hypothesis,
-            'hypothesis': elaborated_hypothesis,
+            'hypothesis': selected_hypothesis,
+            # 'selected_hypothesis': selected_hypothesis,
+            # 'hypothesis': elaborated_hypothesis,
         }
 
         self.outputs.update(hypothesis_data)

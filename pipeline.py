@@ -10,7 +10,7 @@ def save_outputs(outputs, now):
     base_path_to_save_outputs = f'outputs/{now}'
     os.makedirs(base_path_to_save_outputs, exist_ok=True)
     for key, value in outputs.items():
-        if key == 'verification_code' or key == 'package_install_code' or key == 'verification_code_error_fixed':
+        if key == 'verification_code' or key == 'package_install_code' or key == 'verification_code_updated':
             extension = 'py'
         else:
             extension = 'txt'
