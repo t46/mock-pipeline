@@ -1,0 +1,12 @@
+Original Hypothesis: 
+We could refine the prompt to be more specific about the type of response we want. For example, instead of asking "What is 1 + 1?", we could ask "Provide the numerical answer to 1 + 1". This might encourage the model to respond with just the number.
+
+Refined Hypothesis:
+The specificity of a question prompt influences the format of the AI model's response. In particular, asking for a "numerical answer" to a mathematical question, such as "Provide the numerical answer to 1 + 1", will increase the likelihood of the model responding with a number only, compared to a less specific prompt like "What is 1 + 1?".
+
+Mathematical Representation:
+Let's denote the event of receiving a numerical response as N and the event of asking a specific question as S. We hypothesize that the probability of receiving a numerical response given a specific question, P(N|S), is greater than the probability of receiving a numerical response given a non-specific question, P(N|~S). In mathematical terms:
+
+P(N|S) > P(N|~S)
+
+This hypothesis can be tested by running an experiment where we ask the AI model a set of specific and non-specific questions and record the format of the responses.

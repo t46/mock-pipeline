@@ -1,0 +1,30 @@
+Verification Plan:
+
+1. Data Preparation:
+    1.1. Prepare a dataset of questions and answers. The dataset should be large and diverse enough to cover a wide range of topics and question types. 
+    1.2. Split the dataset into two equal parts: one for training and one for testing.
+
+2. Prompt Preparation:
+    2.1. For the first part of the dataset, prepare general prompts. For example, if the question is "What is 1 + 1?", the general prompt would be "What is 1 + 1?".
+    2.2. For the second part of the dataset, prepare specific prompts. For example, if the question is "What is 1 + 1?", the specific prompt would be "Provide the numerical answer to 1 + 1".
+
+3. Model Training:
+    3.1. Train two versions of the LLM (GPT-4) separately. One version should be trained with the general prompts and the other with the specific prompts.
+    3.2. Ensure that both models are trained under the same conditions (same number of epochs, same learning rate, etc.) to ensure a fair comparison.
+
+4. Model Testing:
+    4.1. Test both models on the testing dataset. The testing dataset should contain both general and specific prompts.
+    4.2. Record the responses of both models.
+
+5. Response Evaluation:
+    5.1. Evaluate the precision of the responses from both models. Precision can be measured by comparing the model's response to the expected answer. If the response matches the expected answer exactly, it is considered precise.
+    5.2. Calculate the precision score for each model by dividing the number of precise responses by the total number of responses.
+
+6. Hypothesis Testing:
+    6.1. Compare the precision scores of the two models. If the model trained with specific prompts has a higher precision score, this would support the hypothesis.
+    6.2. Perform a statistical test (such as a t-test) to determine if the difference in precision scores is statistically significant. If the p-value is less than 0.05, this would provide strong evidence in favor of the hypothesis.
+
+7. Report Findings:
+    7.1. Document the process and results of the experiment.
+    7.2. If the hypothesis is supported, provide recommendations for improving the precision of LLM responses, such as using more specific prompts during training.
+    7.3. If the hypothesis is not supported, suggest alternative strategies for improving precision and propose new hypotheses for future testing.

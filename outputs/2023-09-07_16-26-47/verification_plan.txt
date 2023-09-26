@@ -1,0 +1,22 @@
+Verification Plan:
+
+1. Define the Directness Metric:
+   The first step is to define a metric to measure the directness of the LLM's response. This could be a simple binary metric where a response is scored as 1 if it is direct and 0 if it is not. Alternatively, a more complex metric could be used, such as the ratio of the number of words in the response that are directly related to the answer to the total number of words in the response.
+
+2. Create a Dataset:
+   Create a dataset of questions that can be used to test the LLM. This dataset should include a variety of question types to ensure that the results are generalizable. Each question should have a general prompt and a specific prompt version. For example, the general prompt might be "What is 1 + 1?" and the specific prompt might be "Provide the numerical answer for 1 + 1".
+
+3. Generate Responses:
+   Use the LLM to generate responses to both the general and specific prompts for each question in the dataset. Record these responses for later analysis.
+
+4. Score the Responses:
+   Use the directness metric defined in step 1 to score each of the LLM's responses. This will result in two scores for each question: one for the response to the general prompt and one for the response to the specific prompt.
+
+5. Compare the Scores:
+   Compare the scores for the general and specific prompts. This can be done using a statistical test, such as a paired t-test, to determine if the difference in scores is statistically significant. If the scores for the specific prompts are significantly higher than the scores for the general prompts, this would support the hypothesis.
+
+6. Analyze the Results:
+   Analyze the results to determine if the hypothesis is supported. If the hypothesis is supported, this would suggest that the specificity of the prompt influences the directness of the LLM's response. If the hypothesis is not supported, this would suggest that other factors may be influencing the directness of the LLM's response.
+
+7. Report the Findings:
+   Write a report detailing the methodology, results, and conclusions of the verification process. This report should be clear and concise, and it should include all relevant information so that others can replicate the verification process if desired.

@@ -1,0 +1,30 @@
+Verification Plan:
+
+1. **Data Collection:**
+    1.1. Collect a large set of general prompts that are typically used with the LLM. These prompts should be diverse and cover a wide range of topics.
+    1.2. For each general prompt, create a corresponding specific prompt. The specific prompt should ask for the same information as the general prompt but in a more direct and specific way.
+
+2. **Experiment Setup:**
+    2.1. Divide the prompts into two groups: one for the general prompts and one for the specific prompts.
+    2.2. Ensure that the LLM is set up and ready for testing. 
+
+3. **Running the Experiment:**
+    3.1. Input each general prompt from the first group into the LLM and record the output.
+    3.2. Repeat the process with the specific prompts from the second group.
+
+4. **Data Analysis:**
+    4.1. Categorize the responses from the LLM into numerical and non-numerical responses. 
+    4.2. Calculate the proportion of numerical responses for the general prompts and the specific prompts.
+    4.3. Use a chi-square test for independence to compare the proportions of numerical responses for the general and specific prompts.
+
+5. **Hypothesis Testing:**
+    5.1. If the p-value from the chi-square test is less than the significance level (usually 0.05), reject the null hypothesis and conclude that the specificity of a prompt does influence the type of response from the LLM.
+    5.2. If the p-value from the chi-square test is greater than the significance level, do not reject the null hypothesis. This would suggest that the specificity of a prompt does not significantly influence the type of response from the LLM.
+
+6. **Report Findings:**
+    6.1. Document the entire process, from the collection of prompts to the statistical analysis.
+    6.2. Clearly state the findings and whether the hypothesis was supported or not.
+    6.3. Discuss potential implications of the findings and any limitations of the study.
+    6.4. Suggest future research directions based on the findings.
+
+This plan will allow us to test the hypothesis in a systematic and rigorous manner. It will provide valuable insights into how the specificity of a prompt influences the type of response from the LLM.

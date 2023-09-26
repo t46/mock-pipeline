@@ -1,0 +1,17 @@
+Original Hypothesis:
+We could refine the prompts to be more specific. For example, instead of asking "What is 1 + 1?", we could ask "Provide the numerical answer to 1 + 1". This might encourage the LLM to respond with just the number.
+
+Refined Hypothesis:
+The specificity of a prompt directly influences the type of response from the Language Learning Model (LLM). If the prompt is more specific, such as "Provide the numerical answer to 1 + 1", the LLM is more likely to respond with a numerical answer, in this case, '2', rather than a verbose or complex response.
+
+Mathematical Representation:
+Let's denote the specificity of a prompt as S and the type of response as R. We hypothesize that there is a direct relationship between S and R. This can be represented as:
+
+R = f(S)
+
+Where:
+R represents the type of response from the LLM.
+S represents the specificity of the prompt.
+f is a function that represents the relationship between R and S.
+
+This hypothesis can be tested by providing the LLM with a set of prompts with varying levels of specificity and analyzing the type of responses received.

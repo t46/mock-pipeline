@@ -1,0 +1,1 @@
+Hypothesis 1: We could refine the prompts to be more specific. For example, instead of asking "What is 1 + 1?", we could ask "Provide the numerical answer to 1 + 1". This might encourage the model to respond with just the number.

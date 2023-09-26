@@ -1,0 +1,1 @@
+Hypothesis 4: We could modify the prompt structure to guide the LLM towards providing more direct answers. For example, instead of asking "What is 1 + 1?", we could ask "Provide the numerical result of 1 + 1".

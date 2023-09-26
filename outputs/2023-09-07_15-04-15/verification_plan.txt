@@ -1,0 +1,26 @@
+Verification Plan:
+
+1. Data Collection:
+   1.1. Collect a set of mathematical questions that can be answered in one word. Ensure that the set is large enough to provide statistically significant results. For example, a set of 1000 questions could be a good starting point.
+   1.2. Prepare two versions of each question: the original version (e.g., "What is 1 + 1?") and the modified version (e.g., "Provide a one-word answer: What is 1 + 1?").
+
+2. Experiment Setup:
+   2.1. Divide the set of questions into two equal subsets: Subset A and Subset B.
+   2.2. Subset A will be used with the original version of the questions, and Subset B will be used with the modified version of the questions.
+
+3. Experiment Execution:
+   3.1. Input the questions from Subset A (original version) into the LLM and record the responses.
+   3.2. Input the questions from Subset B (modified version) into the LLM and record the responses.
+
+4. Data Analysis:
+   4.1. For each response, count the number of words. Exclude any standard stop words (e.g., "the", "is", "and", etc.) from the count.
+   4.2. Calculate the average number of words in the responses for Subset A (original version). This is value A.
+   4.3. Calculate the average number of words in the responses for Subset B (modified version). This is value B.
+
+5. Hypothesis Testing:
+   5.1. Compare values A and B. If B < A, this supports the hypothesis that modifying the prompt results in more concise responses from the LLM.
+   5.2. To further validate the results, perform a statistical test (e.g., t-test) to determine if the difference in the average number of words is statistically significant.
+
+6. Report Results:
+   6.1. Document the results of the experiment, including the average number of words in the responses for both the original and modified prompts, the comparison of these averages, and the results of the statistical test.
+   6.2. If the hypothesis is supported, provide recommendations for modifying prompts to achieve more concise responses from the LLM. If the hypothesis is not supported, suggest potential reasons why and propose new hypotheses for future testing.

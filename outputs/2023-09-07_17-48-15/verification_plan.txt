@@ -1,0 +1,30 @@
+Verification Plan:
+
+1. Define the Specificity Function:
+   1.1. Define a function to measure the specificity of the LLM's responses. This function could be defined as the proportion of responses that are in the exact format requested in the prompt. For example, if the prompt asks for a numerical answer, the function would return 1 if the response is a number and 0 if it is not.
+
+2. Create Two Sets of Prompts:
+   2.1. Create a set of general prompts (G). These prompts should be general questions that do not specify the format of the response.
+   2.2. Create a set of specific prompts (S). These prompts should be the same questions as in G, but with added instructions specifying the format of the response. For example, if a general prompt is "What is 1 + 1?", the corresponding specific prompt could be "Provide the numerical answer to 1 + 1".
+
+3. Generate Responses from the LLM:
+   3.1. Input the general prompts (G) into the LLM and record the responses.
+   3.2. Input the specific prompts (S) into the LLM and record the responses.
+
+4. Measure the Specificity of the Responses:
+   4.1. Apply the specificity function to the responses from the general prompts (G) and calculate the average specificity score.
+   4.2. Apply the specificity function to the responses from the specific prompts (S) and calculate the average specificity score.
+
+5. Compare the Specificity Scores:
+   5.1. Compare the average specificity scores for the responses to the general prompts (G) and the specific prompts (S).
+   5.2. If the average specificity score for S is greater than for G, this would support the hypothesis that more specific prompts yield more specific responses from the LLM.
+
+6. Statistical Analysis:
+   6.1. To ensure the results are statistically significant, perform a statistical test (e.g., t-test) to compare the specificity scores of the two groups. If the p-value is less than 0.05, we can conclude that there is a significant difference in the specificity of responses between the two groups.
+
+7. Document the Results:
+   7.1. Document the process, the results, and any observations made during the experiment. This documentation should include the prompts used, the responses received, the specificity scores, and the results of the statistical analysis.
+
+8. Review and Refine the Experiment:
+   8.1. Review the results and consider whether the experiment could be improved. For example, it might be beneficial to use a larger sample size or to refine the specificity function.
+   8.2. If necessary, refine the experiment and repeat the process.

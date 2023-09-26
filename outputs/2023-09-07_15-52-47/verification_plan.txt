@@ -1,0 +1,29 @@
+Verification Plan:
+
+1. **Data Collection:**
+    1.1. Prepare a list of mathematical questions that can be answered numerically. Ensure that the questions are of varying complexity to test the LLM's ability to respond accurately and concisely.
+    1.2. For each question, prepare two versions of the prompt: a general version (e.g., "What is 1 + 1?") and a specific version that requests a numerical answer (e.g., "Provide the numerical answer to 1 + 1").
+
+2. **Experiment Setup:**
+    2.1. Set up an experiment where the LLM (GPT-4) is asked to answer both versions of each question.
+    2.2. Ensure that the order of the questions is randomized to avoid any order effects.
+
+3. **Data Generation:**
+    3.1. Input the general version of each question into the LLM and record the output.
+    3.2. Input the specific version of each question into the LLM and record the output.
+    3.3. For each output, categorize it as either a numerical response or a non-numerical response.
+
+4. **Data Analysis:**
+    4.1. Calculate the proportion of numerical responses for the general version of the questions (R1/N).
+    4.2. Calculate the proportion of numerical responses for the specific version of the questions (R2/N).
+
+5. **Statistical Testing:**
+    5.1. Formulate the null hypothesis (H0): The proportion of numerical responses is the same for both versions of the questions (R1/N = R2/N).
+    5.2. Formulate the alternative hypothesis (H1): The proportion of numerical responses is greater for the specific version of the questions (R1/N < R2/N).
+    5.3. Conduct a chi-square test for independence to determine whether the difference in proportions is statistically significant.
+    5.4. If the p-value is less than 0.05, reject the null hypothesis and accept the alternative hypothesis. This would support the original hypothesis that modifying the format of a question prompt can influence the type of response received.
+
+6. **Report Findings:**
+    6.1. Document the findings of the experiment, including the statistical test results and any observed trends or patterns in the LLM's responses.
+    6.2. If the original hypothesis is supported, provide recommendations for how to modify question prompts to elicit numerical responses from the LLM.
+    6.3. If the original hypothesis is not supported, suggest potential reasons why and propose new hypotheses for future testing.

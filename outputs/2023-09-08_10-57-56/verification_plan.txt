@@ -1,0 +1,26 @@
+Verification Plan:
+
+1. Define the Experiment:
+   1.1. Define a set of general prompts: These prompts should be general questions that can be answered numerically. For example, "What is 1 + 1?".
+   1.2. Define a set of specific prompts: These prompts should be the same questions as the general prompts, but rephrased to be more specific. For example, "Provide the numerical answer to 1 + 1".
+
+2. Conduct the Experiment:
+   2.1. Input the general prompts into the LLM and record the responses.
+   2.2. Input the specific prompts into the LLM and record the responses.
+
+3. Analyze the Results:
+   3.1. Categorize the responses from the general prompts into 'numerical only' and 'non-numerical' responses. Count the number of responses in each category.
+   3.2. Categorize the responses from the specific prompts into 'numerical only' and 'non-numerical' responses. Count the number of responses in each category.
+   3.3. Calculate the proportion of 'numerical only' responses for the general prompts (G) and the specific prompts (S).
+
+4. Test the Hypothesis:
+   4.1. Compare the proportions G and S. If S > G, then the hypothesis is supported. If S <= G, then the hypothesis is not supported.
+
+5. Document the Results:
+   5.1. Write a report detailing the experiment, the results, and whether the hypothesis was supported or not. Include the raw data, the categorized responses, and the calculated proportions.
+
+6. Review and Refine:
+   6.1. If the hypothesis is not supported, review the experiment to identify potential issues. Consider refining the prompts or the categorization method.
+   6.2. If the hypothesis is supported, consider further experiments to refine the understanding of how prompt specificity influences LLM responses. For example, test different types of specificity (e.g., asking for a 'one-word answer' vs. a 'numerical answer') or different types of questions (e.g., math problems vs. trivia questions). 
+
+This plan will allow us to test the hypothesis in a structured, systematic way, and will provide data that can be used to refine our understanding of how prompt specificity influences LLM responses.

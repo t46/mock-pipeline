@@ -1,0 +1,48 @@
+Here is the Python code to execute the verification plan:
+
+```python
+import random
+import numpy as np
+from scipy import stats
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
+# Initialize the model and tokenizer
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+model = GPT2LMHeadModel.from_pretrained("gpt2")
+
+# Prepare the questions
+general_questions = ["What is 1 + 1?", "What is the capital of France?", "Who was the first president of the United States?"]
+specific_questions = ["Provide a one-word answer: What is 1 + 1?", "Provide a one-word answer: What is the capital of France?", "Provide a one-word answer: Who was the first president of the United States?"]
+
+# Randomize the questions
+random.shuffle(general_questions)
+random.shuffle(specific_questions)
+
+def get_response(question):
+    inputs = tokenizer.encode(question, return_tensors='pt')
+    outputs = model.generate(inputs, max_length=150, num_return_sequences=1)
+    response = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    return response
+
+# Experiment execution
+general_responses = [get_response(q) for q in general_questions]
+specific_responses = [get_response(q) for q in specific_questions]
+
+# Data analysis
+general_lengths = [len(r.split()) for r in general_responses]
+specific_lengths = [len(r.split()) for r in specific_responses]
+
+avg_rg = np.mean(general_lengths)
+avg_rs = np.mean(specific_lengths)
+
+# Statistical testing
+t_stat, p_val = stats.ttest_ind(general_lengths, specific_lengths)
+
+# Result interpretation
+if p_val < 0.05:
+    print("The specificity of a question prompt directly influences the conciseness of the response.")
+else:
+    print("The specificity of a question prompt does not directly influence the conciseness of the response.")
+```
+
+Please note that this code assumes you have the transformers library installed and that you have access to the GPT-2 model. If you want to use GPT-4, you would need to replace "gpt2" with the appropriate model name. Also, the code does not include the report writing part, as that would typically be done in a separate document or presentation.

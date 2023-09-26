@@ -1,0 +1,30 @@
+Verification Plan:
+
+1. Define the Dataset:
+   1.1. Create a dataset of 1000 mathematical questions. The questions should be simple arithmetic problems that the LLM can solve, such as addition, subtraction, multiplication, and division.
+   1.2. Ensure that the questions are diverse and cover a range of different types of problems to avoid biasing the results.
+
+2. Split the Dataset:
+   2.1. Split the dataset into two equal parts, each containing 500 questions.
+   2.2. The first half will be the control group, where questions are phrased in the traditional way (e.g., "What is 1 + 1?").
+   2.3. The second half will be the experimental group, where questions are phrased in the more specific way (e.g., "Provide the numerical answer to 1 + 1").
+
+3. Run the Experiment:
+   3.1. Input the control group questions into the LLM and record the responses.
+   3.2. Input the experimental group questions into the LLM and record the responses.
+
+4. Analyze the Results:
+   4.1. For the control group, count the number of responses that are numerical. This is Rc, the number of numerical responses in the control group.
+   4.2. For the experimental group, count the number of responses that are numerical. This is Re, the number of numerical responses in the experimental group.
+   4.3. Calculate the percentage of numerical responses in the control group (Pc = Rc / 500 * 100) and in the experimental group (Pe = Re / 500 * 100).
+
+5. Compare the Results:
+   5.1. If Pe > 80% and Pe > Pc, then the hypothesis is supported. The LLM responds with a numerical answer in more than 80% of the cases when the prompts are more specific, and this is a higher percentage than when the prompts are phrased in the traditional way.
+   5.2. If Pe < 80% or Pe <= Pc, then the hypothesis is not supported. The LLM does not respond with a numerical answer in more than 80% of the cases when the prompts are more specific, or this is not a higher percentage than when the prompts are phrased in the traditional way.
+
+6. Report the Results:
+   6.1. Document the experiment process and results.
+   6.2. Include the raw data, the calculated percentages, and the comparison of the percentages.
+   6.3. Discuss whether the results support the hypothesis and any potential implications for the use of the LLM. 
+
+This verification plan is designed to test the hypothesis in a systematic and rigorous way. It uses a large dataset to ensure that the results are statistically significant, and it compares the results from two different types of prompts to determine whether making the prompts more specific can improve the LLM's responses.

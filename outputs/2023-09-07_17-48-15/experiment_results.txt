@@ -1,0 +1,9 @@
+General prompts: ['What is 1 + 1?', 'What is the capital of France?', 'Who wrote "To Kill a Mockingbird"?']
+Specific prompts: ['Provide the numerical answer to 1 + 1', 'Provide the name of the capital city of France', 'Provide the name of the author who wrote "To Kill a Mockingbird"']
+General responses: ['2', 'The capital of France is Paris.', 'Harper Lee']
+Specific responses: ['2', 'The capital city of France is Paris.', 'Harper Lee']
+General scores: []
+Specific scores: [1]
+Average specificity score for general prompts: nan
+Average specificity score for specific prompts: 1.0
+T-test p-value: nan

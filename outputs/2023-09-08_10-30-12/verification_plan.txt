@@ -1,0 +1,36 @@
+Verification Plan:
+
+1. Define the Specificity Scoring System:
+   1.1. Develop a scoring system to quantify the specificity of prompts. For example, a prompt like "What is 1 + 1?" might be assigned a score of 1 (low specificity), while "Provide the numerical answer to 1 + 1" might be assigned a score of 2 (high specificity).
+   1.2. Ensure that the scoring system is consistent and can be applied to a wide range of prompts.
+
+2. Prepare the Dataset:
+   2.1. Create a dataset of prompts with varying levels of specificity, ensuring that each level of specificity is well-represented in the dataset.
+   2.2. Assign a specificity score to each prompt using the scoring system developed in step 1.
+   2.3. For each prompt, include the correct response for later comparison.
+
+3. Train the LLM:
+   3.1. Train the LLM with the dataset created in step 2.
+   3.2. Ensure that the training process is consistent across all prompts, regardless of their specificity score.
+
+4. Test the LLM:
+   4.1. After training, input the prompts into the LLM and record the responses.
+   4.2. For each response, determine whether it is correct by comparing it to the correct response included in the dataset.
+
+5. Measure Precision:
+   5.1. For each level of specificity, calculate the precision of the responses. Precision can be quantified as the percentage of correct responses.
+   5.2. Record the precision for each level of specificity.
+
+6. Analyze the Results:
+   6.1. Plot the specificity scores (S) against the precision (P) to visualize the relationship between them.
+   6.2. Calculate the correlation coefficient between S and P to quantify the strength and direction of the relationship.
+   6.3. If the correlation is positive and statistically significant, this would support the hypothesis that the precision of responses is directly proportional to the specificity of the prompts.
+
+7. Draw Conclusions:
+   7.1. Based on the results of the analysis, determine whether the evidence supports the hypothesis.
+   7.2. If the evidence does not support the hypothesis, consider alternative explanations or modifications to the hypothesis.
+   7.3. Document the findings and conclusions, including any limitations or uncertainties in the study.
+
+8. Repeat the Experiment:
+   8.1. To ensure the reliability of the results, repeat the experiment multiple times with different datasets.
+   8.2. If the results are consistent across multiple experiments, this would provide stronger evidence for the hypothesis.

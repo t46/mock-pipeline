@@ -1,0 +1,25 @@
+Verification Plan:
+
+1. Data Collection:
+   1.1. Collect a diverse set of tasks/questions that the LLM can answer. These tasks should be varied in nature, including mathematical problems, factual questions, and more complex queries. Ensure that the correct answer to each task is known and recorded.
+   1.2. For each task, create two different prompts. One should be a simple question (e.g., "What is 1 + 1?"), and the other should be a more directive prompt (e.g., "Calculate 1 + 1 and provide the answer only.").
+
+2. Model Testing:
+   2.1. Input each prompt into the LLM and record the output. Do this for both the simple and directive prompts for each task.
+   2.2. Repeat this process multiple times (e.g., 100 times) for each prompt to ensure a robust sample size.
+
+3. Data Processing:
+   3.1. For each task, compare the output of the LLM when given the simple prompt versus the directive prompt. 
+   3.2. Create a binary variable to represent whether the output was directly related to the task (1) or not (0). This can be done by checking if the output matches the known correct answer without any extraneous text.
+   3.3. Calculate the mean of this binary variable for each type of prompt. This will give the proportion of times the LLM output was directly related to the task for each type of prompt.
+
+4. Statistical Analysis:
+   4.1. Perform a paired t-test comparing the proportions of direct responses for the simple and directive prompts. The pairs in this case are the proportions for each task under the two different prompts.
+   4.2. Calculate the p-value from the t-test.
+
+5. Results Interpretation:
+   5.1. If the p-value is less than 0.05, reject the null hypothesis (H0) and conclude that the output of the model varies with the prompt modification. This would support the hypothesis that modifying the prompts can guide the LLM towards a more specific desired output.
+   5.2. If the p-value is greater than 0.05, do not reject the null hypothesis. This would suggest that the output of the model does not significantly vary with the prompt modification, and further investigation would be needed.
+
+6. Report Writing:
+   6.1. Document the methodology, results, and conclusions in a formal report. Include details of the tasks used, the prompts, the LLM outputs, the statistical analysis, and the interpretation of the results.

@@ -1,0 +1,50 @@
+```python
+import openai
+import numpy as np
+from scipy import stats
+
+# Step 1: Define the Experiment
+questions = ["What is 1 + 1?", "What is the square root of 4?", "What is 2 * 2?", "What is 10 - 2?", "What is 3 ^ 3?"]
+refined_questions = ["Provide the numerical answer to 1 + 1", "Provide the numerical answer to the square root of 4", 
+                     "Provide the numerical answer to 2 * 2", "Provide the numerical answer to 10 - 2", 
+                     "Provide the numerical answer to 3 ^ 3"]
+
+def score_response(response):
+    return 1 if response.isdigit() else 0
+
+# Step 2: Prepare the Data
+# Already prepared in step 1
+
+# Step 3: Run the Experiment
+openai.api_key = 'your-api-key'  # Make sure to replace 'your-api-key' with your actual OpenAI API key
+
+def get_responses(prompts):
+    responses = []
+    for prompt in prompts:
+        response = openai.Completion.create(engine="text-davinci-002", prompt=prompt, max_tokens=5)
+        responses.append(response.choices[0].text.strip())
+    return responses
+
+original_responses = get_responses(questions)
+refined_responses = get_responses(refined_questions)
+
+# Step 4: Score the Responses
+original_scores = [score_response(response) for response in original_responses]
+refined_scores = [score_response(response) for response in refined_responses]
+
+# Step 5: Analyze the Results
+original_avg = np.mean(original_scores)
+refined_avg = np.mean(refined_scores)
+
+t_stat, p_val = stats.ttest_ind(original_scores, refined_scores)
+
+# Step 6: Interpret the Results
+if p_val < 0.05 and refined_avg > original_avg:
+    print("The hypothesis is supported.")
+else:
+    print("The hypothesis is not supported.")
+
+# Step 7: Report the Results
+# This step is subjective and would typically involve writing a detailed report based on the results of the experiment.
+# The code provided does not cover this step.
+```

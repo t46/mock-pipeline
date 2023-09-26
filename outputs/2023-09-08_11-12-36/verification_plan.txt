@@ -1,0 +1,31 @@
+Verification Plan:
+
+1. Data Collection:
+   1.1. Prepare a set of questions that can be answered in one word. These questions should cover a variety of topics to ensure the results are not biased towards a specific subject.
+   1.2. For each question, create two versions of the prompt: the original version (e.g., "What is 1 + 1?") and the modified version (e.g., "Provide a one-word answer: What is 1 + 1?").
+
+2. Experiment Setup:
+   2.1. Divide the questions into two groups: one for the original prompts and one for the modified prompts.
+   2.2. Ensure that the two groups are balanced, i.e., they contain an equal number of questions from each topic.
+
+3. Execution:
+   3.1. Input the original prompts into the LLM and record the responses.
+   3.2. Input the modified prompts into the LLM and record the responses.
+
+4. Data Analysis:
+   4.1. For each response, calculate the length (L) as the number of words in the response.
+   4.2. For each response, calculate the complexity (C) as the number of clauses or sentences in the response.
+   4.3. Calculate the average length (L1 for original prompts, L2 for modified prompts) and average complexity (C1 for original prompts, C2 for modified prompts) for each group of responses.
+
+5. Hypothesis Testing:
+   5.1. Use a statistical test (e.g., t-test) to compare the average lengths (L1 and L2) and complexities (C1 and C2) of the responses to the original and modified prompts.
+   5.2. If the test shows a significant difference (p < 0.05), reject the null hypothesis (H0) and accept the alternative hypothesis (H1). This would indicate that the modified prompts result in shorter and less complex responses.
+   5.3. If the test does not show a significant difference (p >= 0.05), do not reject the null hypothesis. This would indicate that the modified prompts do not significantly affect the length or complexity of the responses.
+
+6. Conclusion:
+   6.1. If the alternative hypothesis is accepted, conclude that the modification of the prompting strategy results in more concise responses from the LLM.
+   6.2. If the null hypothesis is not rejected, conclude that the modification of the prompting strategy does not significantly affect the conciseness of the LLM's responses.
+
+7. Reporting:
+   7.1. Document the entire process, including the data collection, experiment setup, execution, data analysis, and conclusion.
+   7.2. Report the results in a clear and concise manner, including the statistical test results and the final conclusion.

@@ -1,0 +1,31 @@
+Verification Plan:
+
+1. Define the Dataset:
+   1.1. Create a dataset of mathematical problems that can be solved by the LLM. The dataset should be large enough to provide statistically significant results. A dataset of 1000 problems is suggested.
+   1.2. The dataset should contain a variety of mathematical problems, including addition, subtraction, multiplication, division, and more complex problems.
+
+2. Define the Prompts:
+   2.1. For each problem in the dataset, create two types of prompts: a general prompt (e.g., "What is 1 + 1?") and a specific prompt (e.g., "Provide the numerical answer to 1 + 1").
+
+3. Run the Experiment:
+   3.1. Input each general prompt into the LLM and record the response.
+   3.2. Input each specific prompt into the LLM and record the response.
+
+4. Analyze the Responses:
+   4.1. For each response, determine whether it is a numerical answer or a non-numerical answer. A numerical answer is one that contains only the number (e.g., "2"), while a non-numerical answer is one that contains additional text (e.g., "The answer to that question is 2").
+   4.2. Calculate the percentage of numerical answers for the general prompts and the specific prompts. This can be done by dividing the number of numerical answers by the total number of prompts and multiplying by 100.
+
+5. Compare the Results:
+   5.1. Compare the percentage of numerical answers for the general prompts and the specific prompts.
+   5.2. If the percentage of numerical answers for the specific prompts is greater than 80%, the hypothesis is supported. If not, the hypothesis is not supported.
+
+6. Document the Results:
+   6.1. Write a report detailing the experiment and the results. The report should include the dataset, the prompts, the responses, the analysis, and the conclusion.
+   6.2. The report should also include any limitations of the experiment and suggestions for future research.
+
+7. Peer Review:
+   7.1. Have the experiment and the results reviewed by peers to ensure the validity of the results.
+   7.2. Incorporate any feedback from the peer review into the final report.
+
+8. Publish the Results:
+   8.1. Publish the final report in a relevant journal or online platform to share the results with the wider community.

@@ -1,0 +1,1 @@
+4. Prompt Engineering: Modify the prompts to guide the model towards the desired output. For example, instead of asking "What is 1 + 1?", the prompt could be "Calculate 1 + 1 and provide the answer only."

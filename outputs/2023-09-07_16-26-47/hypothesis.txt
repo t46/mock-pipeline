@@ -1,0 +1,1 @@
+3. Modify the Prompt: The prompt could be modified to instruct the LLM to provide a more direct answer. For example, instead of asking "What is 1 + 1?", the prompt could be "Provide the numerical answer for 1 + 1".

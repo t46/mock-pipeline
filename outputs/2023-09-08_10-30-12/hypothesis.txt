@@ -1,0 +1,1 @@
+Hypothesis: Training the LLM with more specific prompts could help it generate more precise responses. For example, instead of asking "What is 1 + 1?", we could ask "Provide the numerical answer to 1 + 1". This might encourage the model to respond with just the number "2".

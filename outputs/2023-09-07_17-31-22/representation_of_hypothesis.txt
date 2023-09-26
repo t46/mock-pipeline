@@ -1,0 +1,14 @@
+Original Hypothesis:
+Hypothesis 3: We could modify the prompt structure to guide the LLM towards providing more direct answers. For example, instead of asking "What is 1 + 1?", we could ask "Provide the numerical answer for 1 + 1".
+
+Refined Hypothesis:
+Hypothesis 3: The structure of the prompt can influence the directness of the response from the Language Learning Model (LLM). Specifically, if the prompt is structured to request a specific type of response, the LLM is more likely to provide a direct answer. For instance, when the LLM is asked to "Provide the numerical answer for 1 + 1", it is hypothesized that it will provide a more direct response than when asked "What is 1 + 1?".
+
+This hypothesis can be tested by conducting an experiment where a set of questions are asked in two different formats to the LLM. One format will be a general question format (e.g., "What is 1 + 1?") and the other will be a specific prompt format (e.g., "Provide the numerical answer for 1 + 1"). The responses from the LLM will then be evaluated for their directness. 
+
+In mathematical terms, let's denote the directness of the response as D, which can be a binary variable (1 for direct, 0 for indirect). The hypothesis can be expressed as:
+
+H0: P(D=1|Specific Prompt) ≤ P(D=1|General Question)
+H1: P(D=1|Specific Prompt) > P(D=1|General Question)
+
+Where H0 is the null hypothesis stating that the probability of getting a direct answer from a specific prompt is less than or equal to that from a general question, and H1 is the alternative hypothesis stating that the probability of getting a direct answer from a specific prompt is greater than that from a general question.

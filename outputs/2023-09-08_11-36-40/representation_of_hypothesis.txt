@@ -1,0 +1,12 @@
+Original Hypothesis:
+Prompt Engineering: Modify the prompts given to the LLM to encourage it to generate more relevant responses. For example, instead of asking "What is 1 + 1?", the prompt could be "Calculate 1 + 1 and provide only the numerical answer."
+
+Refined Hypothesis:
+The specificity of prompts given to a Language Model (LLM) has a direct impact on the relevance of the responses generated. In this context, relevance refers to the degree to which the response directly answers the prompt without providing unnecessary information. For instance, when the LLM is asked to "Calculate 1 + 1 and provide only the numerical answer", it is hypothesized that the LLM will generate a more relevant response (i.e., "2") compared to a less specific prompt such as "What is 1 + 1?".
+
+Mathematical Representation:
+Let's denote the relevance of a response as R, which can be a binary variable (1 for relevant, 0 for not relevant). Let's denote the specificity of a prompt as S, which can be a continuous variable ranging from 0 (not specific) to 1 (very specific). The hypothesis can be represented as:
+
+R = f(S)
+
+where f is a function that represents the relationship between R and S. The hypothesis suggests that as S increases, R also increases, implying a positive correlation between the two variables. This can be tested by providing the LLM with prompts of varying specificity and evaluating the relevance of the generated responses.

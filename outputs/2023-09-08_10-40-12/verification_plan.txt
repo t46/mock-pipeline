@@ -1,0 +1,30 @@
+Verification Plan:
+
+1. Data Collection:
+   1.1. Collect a diverse set of prompts that cover a wide range of topics and complexity. These prompts should be representative of the types of questions typically asked to the LLM. 
+   1.2. For each prompt in the set, create a modified version that instructs the model to provide a direct answer. For example, if the original prompt is "What is 1 + 1?", the modified version would be "Provide a one-word answer: What is 1 + 1?".
+
+2. Experiment Setup:
+   2.1. Divide the collected prompts into two sets: S (standard prompts) and M (modified prompts).
+   2.2. Ensure that the LLM is set up and ready for testing. 
+
+3. Execution:
+   3.1. Input each prompt from set S into the LLM and record the responses in a list R_s.
+   3.2. Repeat the process with set M, recording the responses in a separate list R_m.
+
+4. Data Analysis:
+   4.1. For each response in R_s and R_m, calculate the length of the response. This could be done by counting the number of words or characters in the response.
+   4.2. Compare the lengths of the responses to the standard prompts (R_s) with the lengths of the responses to the modified prompts (R_m). 
+   4.3. Calculate the average length of responses in R_s and R_m. 
+
+5. Hypothesis Testing:
+   5.1. If the average length of responses in R_s is significantly greater than the average length of responses in R_m, then the hypothesis is supported.
+   5.2. If there is no significant difference in the average lengths, or if the average length of responses in R_m is greater, then the hypothesis is not supported.
+
+6. Report Findings:
+   6.1. Document the process and findings in a report. The report should include the methodology, data analysis, and conclusion about the hypothesis.
+   6.2. If the hypothesis is supported, suggest implementing the strategy of modifying prompts for a more concise response from the LLM. If the hypothesis is not supported, suggest alternative strategies or further research.
+
+7. Review and Refinement:
+   7.1. Based on the findings, review the hypothesis and the testing process. 
+   7.2. If necessary, refine the hypothesis or the testing process and repeat the verification plan.

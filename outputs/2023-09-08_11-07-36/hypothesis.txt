@@ -1,0 +1,2 @@
+Hypothesis: Refine the Prompting Strategy
+   - We could refine the way we prompt the LLM. For instance, instead of asking "What is 1 + 1?", we could ask "Calculate 1 + 1 and provide the numerical answer only". This might encourage the model to provide a more direct response.

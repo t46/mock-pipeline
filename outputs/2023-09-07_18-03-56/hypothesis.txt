@@ -1,0 +1,1 @@
+1. Refine the Prompt: One way to address this issue could be to refine the prompt given to the LLM. For example, instead of asking "What is 1 + 1?", the prompt could be "Provide the numerical answer to 1 + 1". This might encourage the model to provide a more direct response.

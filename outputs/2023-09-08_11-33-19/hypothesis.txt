@@ -1,0 +1,1 @@
+2. Modify the Prompt: The prompt could be modified to ask for a more specific response. For example, instead of asking "What is 1 + 1?", the prompt could be "Provide the numerical answer to 1 + 1".

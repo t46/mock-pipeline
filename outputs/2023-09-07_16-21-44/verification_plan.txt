@@ -1,0 +1,30 @@
+Verification Plan:
+
+1. Data Collection:
+   1.1. Identify a set of mathematical questions that can be asked in both specific and non-specific ways. For example, "What is 1 + 1?" (non-specific) and "Provide the numerical answer to 1 + 1" (specific).
+   1.2. Ensure that the set of questions is large enough to provide statistically significant results. A sample size of at least 100 questions is recommended.
+
+2. Experiment Setup:
+   2.1. Divide the set of questions into two groups: one for specific prompts and one for non-specific prompts.
+   2.2. Ensure that the same mathematical question is present in both groups but phrased differently according to the group's requirement.
+
+3. Experiment Execution:
+   3.1. Input the specific prompts to the LLM and record the responses.
+   3.2. Input the non-specific prompts to the LLM and record the responses.
+
+4. Data Analysis:
+   4.1. For each response, determine whether it is a numerical response or not. A numerical response is defined as a response that contains only a number and no other text.
+   4.2. Calculate the proportion of numerical responses in the specific prompt group. This is an estimate of P(N|S).
+   4.3. Calculate the proportion of numerical responses in the non-specific prompt group. This is an estimate of P(N|~S).
+
+5. Hypothesis Testing:
+   5.1. Compare P(N|S) and P(N|~S). If P(N|S) > P(N|~S), then the hypothesis is supported.
+   5.2. To determine if the difference is statistically significant, perform a chi-square test of independence or a similar statistical test. If the p-value is less than 0.05, then the difference is statistically significant.
+
+6. Report Results:
+   6.1. Document the experiment process, data analysis, and results.
+   6.2. If the hypothesis is supported and the difference is statistically significant, conclude that the specificity of a question prompt influences the format of the AI model's response. If not, conclude that the data does not support the hypothesis.
+
+7. Review and Refine:
+   7.1. If the hypothesis is not supported, review the experiment process and data analysis for potential issues.
+   7.2. Consider refining the hypothesis or experiment design based on the results and any identified issues. Repeat the experiment if necessary.

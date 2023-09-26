@@ -1,0 +1,30 @@
+Verification Plan:
+
+1. Preparation of Dataset:
+    1.1. Prepare a dataset of questions that can be answered in a single word or a short phrase. The dataset should be large enough to provide statistically significant results. For example, a dataset of 1000 questions could be used.
+    1.2. Divide the dataset into two equal halves. The first half will be used for traditional questioning, and the second half will be used for modified questioning.
+
+2. Traditional Questioning:
+    2.1. Feed the first half of the questions to the LLM in their original form.
+    2.2. Record the responses from the LLM in a list, R1.
+
+3. Modified Questioning:
+    3.1. Modify the second half of the questions by adding the instruction "Provide a one-word answer:" at the beginning of each question.
+    3.2. Feed these modified questions to the LLM.
+    3.3. Record the responses from the LLM in a separate list, R2.
+
+4. Analysis of Responses:
+    4.1. Calculate the average length of the responses in R1. This can be done by summing the lengths of all responses and dividing by the number of responses.
+    4.2. Calculate the average length of the responses in R2 in the same way.
+    4.3. Compare the two average lengths. If the average length of the responses in R2 is less than the average length of the responses in R1, then the hypothesis is confirmed.
+
+5. Statistical Analysis:
+    5.1. To further validate the results, perform a statistical test, such as a t-test, to determine if the difference in average lengths is statistically significant. If the p-value is less than 0.05, then the difference is statistically significant.
+
+6. Documentation:
+    6.1. Document the entire process, including the preparation of the dataset, the exact questions used, the responses from the LLM, and the results of the analysis.
+    6.2. If the hypothesis is confirmed, provide a detailed explanation of the results and their implications. If the hypothesis is not confirmed, provide possible reasons and suggest improvements for future testing.
+
+7. Review and Repeat:
+    7.1. Review the results and the testing process to identify any potential issues or improvements.
+    7.2. If necessary, repeat the testing process with the improvements implemented.

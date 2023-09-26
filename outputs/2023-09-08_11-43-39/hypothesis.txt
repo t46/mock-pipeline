@@ -1,0 +1,1 @@
+Hypothesis: Using a different prompt structure could lead to more direct responses. For example, instead of asking "What is 1 + 1?", the prompt could be "Calculate: 1 + 1". This might encourage the model to generate a more direct response.

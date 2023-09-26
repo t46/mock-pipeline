@@ -1,0 +1,30 @@
+Verification Plan:
+
+1. Define Specificity:
+   1.1. Define what constitutes a specific prompt and what constitutes a general prompt. For example, a specific prompt could be one that asks for a specific type of answer (e.g., numerical, yes/no, a single word), while a general prompt could be one that allows for a more open-ended response.
+   1.2. Create a scoring system to rate the specificity of a prompt. For example, a scale of 1-5, where 1 is very general and 5 is very specific.
+
+2. Create a Dataset:
+   2.1. Create a dataset of prompts with varying levels of specificity according to the scoring system defined in step 1.2. Ensure that the dataset is large and diverse enough to cover a wide range of topics and types of prompts.
+   2.2. For each prompt, also include the ideal response type. This will be used later to compare with the LLM's actual response.
+
+3. Generate Responses:
+   3.1. Input each prompt from the dataset into the LLM and record the response.
+   3.2. Store the responses in a structured format, such as a CSV file, where each row contains the prompt, its specificity score, the ideal response type, and the LLM's actual response.
+
+4. Analyze Responses:
+   4.1. For each response, determine its type. This could be done manually, or by using a smaller language model trained to classify text into different types.
+   4.2. Compare the actual response type with the ideal response type for each prompt. Record whether they match or not.
+
+5. Test Hypothesis:
+   5.1. Calculate the correlation between the specificity score of the prompts and the match between the ideal and actual response types. If the correlation is positive and statistically significant, this would support the hypothesis that more specific prompts lead to responses that are more in line with the ideal response type.
+   5.2. Additionally, perform a regression analysis with the specificity score as the independent variable and the match between the ideal and actual response types as the dependent variable. This will provide further evidence of the relationship between prompt specificity and response type.
+
+6. Report Results:
+   6.1. Compile the results of the correlation and regression analyses into a report.
+   6.2. Include visualizations, such as scatter plots, to illustrate the relationship between prompt specificity and response type.
+   6.3. Discuss the implications of the results for the use of LLMs and provide recommendations for improving the specificity of prompts.
+
+7. Review and Refine:
+   7.1. Based on the results, refine the hypothesis if necessary and repeat the verification process.
+   7.2. Continue this iterative process until a satisfactory conclusion is reached.

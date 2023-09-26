@@ -1,0 +1,25 @@
+Verification Plan:
+
+1. Define the Dataset:
+   1.1. Select a diverse set of prompts that cover a wide range of topics and complexity. This set should be large enough to provide statistically significant results. Let's say we choose 1000 prompts.
+   1.2. For each prompt in the dataset, create a modified version that instructs the model to provide a direct answer. For example, if the original prompt is "What is the color of the sky?", the modified version would be "Provide a one-word answer: What is the color of the sky?".
+
+2. Run the Experiment:
+   2.1. Input each standard prompt from the dataset into the LLM and record the response. Store these responses in a list or array for later analysis.
+   2.2. Repeat the process with the modified prompts, storing the responses separately from the standard prompt responses.
+
+3. Analyze the Results:
+   3.1. For each pair of responses (standard and modified), calculate the length of the response. This could be done by counting the number of words or characters, depending on what is considered a more accurate measure of "length".
+   3.2. Compare the lengths of the responses to the standard prompts with the lengths of the responses to the modified prompts. If the hypothesis is correct, the responses to the modified prompts should be shorter on average.
+
+4. Statistical Analysis:
+   4.1. Perform a statistical test to determine if the difference in lengths is significant. A paired t-test could be appropriate here, as it compares the means of two related groups to determine if there is a significant difference between them.
+   4.2. If the p-value from the t-test is less than 0.05, we can reject the null hypothesis (that there is no difference in response lengths) and conclude that the difference is statistically significant.
+
+5. Evaluate the Hypothesis:
+   5.1. If the statistical test shows a significant difference in the lengths of the responses, and the responses to the modified prompts are shorter, then the hypothesis is supported.
+   5.2. If there is no significant difference, or if the responses to the standard prompts are shorter, then the hypothesis is not supported.
+
+6. Report the Results:
+   6.1. Compile the results into a report that includes the methodology, statistical analysis, and conclusion about the hypothesis.
+   6.2. The report should also include any limitations of the study and suggestions for future research. For example, it could be useful to investigate whether the modified prompts not only result in shorter responses, but also more accurate ones.

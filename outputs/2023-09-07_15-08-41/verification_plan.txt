@@ -1,0 +1,30 @@
+Verification Plan:
+
+1. Define the Scope:
+   - Identify the types of prompts that the LLM typically struggles with in terms of providing concise responses. These could be mathematical problems, factual questions, or other types of queries.
+   - Define what constitutes a "precise" response for each type of prompt. For example, for a mathematical problem, a precise response would be the numerical answer without any additional text.
+
+2. Data Collection:
+   - Collect a set of prompts that the LLM typically struggles with. This will be our test set.
+   - For each prompt in the test set, define the expected precise response.
+
+3. Experiment Design:
+   - For each prompt in the test set, create a more specific version of the prompt. For example, if the original prompt is "What is 1 + 1?", the more specific version could be "Provide a one-word answer: What is 1 + 1?".
+   - Run the LLM with both the original and the more specific prompts. Record the responses.
+
+4. Data Analysis:
+   - For each pair of responses (original prompt vs. more specific prompt), evaluate the precision of the response. This could be done by checking if the response matches the expected precise response defined in step 2.
+   - Calculate the proportion of precise responses for the original prompts and the more specific prompts.
+
+5. Hypothesis Testing:
+   - If the proportion of precise responses is significantly higher for the more specific prompts compared to the original prompts, this would support the hypothesis that increasing the specificity of the prompt increases the precision of the LLM's response.
+   - If there is no significant difference in the proportion of precise responses, or if the proportion is higher for the original prompts, this would not support the hypothesis.
+
+6. Report Findings:
+   - Summarize the findings in a report, including the methodology, results, and conclusions. Discuss any limitations of the study and potential implications for the use of LLMs.
+
+7. Peer Review:
+   - Have the study reviewed by peers or experts in the field to ensure the validity of the methodology and the findings.
+
+8. Replication:
+   - If the hypothesis is supported, attempt to replicate the findings with a different set of prompts and a different LLM (e.g., GPT-3 instead of GPT-4) to test the generalizability of the findings.

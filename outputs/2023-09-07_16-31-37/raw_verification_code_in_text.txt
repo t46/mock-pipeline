@@ -1,0 +1,55 @@
+```python
+import random
+import numpy as np
+from scipy import stats
+from transformers import GPT4LMHeadModel, GPT4Tokenizer
+
+# Initialize the model and tokenizer
+tokenizer = GPT4Tokenizer.from_pretrained('gpt-4')
+model = GPT4LMHeadModel.from_pretrained('gpt-4')
+
+# Prepare the list of questions
+questions = [
+    ("What is 1 + 1?", "Provide a one-word answer: What is 1 + 1?"),
+    # Add more questions here...
+]
+
+# Randomly divide the questions into two sets
+random.shuffle(questions)
+half = len(questions) // 2
+set1 = questions[:half]
+set2 = questions[half:]
+
+# Function to get model response
+def get_response(question):
+    inputs = tokenizer.encode(question, return_tensors='pt')
+    outputs = model.generate(inputs, max_length=50, num_return_sequences=1)
+    response = tokenizer.decode(outputs[0])
+    return response
+
+# Function to calculate response length
+def calculate_length(response):
+    return len(response.split())
+
+# Collect responses and calculate lengths
+lengths_set1 = [calculate_length(get_response(q[0])) for q in set1]
+lengths_set2 = [calculate_length(get_response(q[1])) for q in set2]
+
+# Calculate averages
+average_set1 = np.mean(lengths_set1)
+average_set2 = np.mean(lengths_set2)
+
+# Perform t-test
+t_stat, p_val = stats.ttest_ind(lengths_set1, lengths_set2)
+
+# Print results
+print(f"Average length of responses to traditional questions: {average_set1}")
+print(f"Average length of responses to modified questions: {average_set2}")
+print(f"t-statistic: {t_stat}, p-value: {p_val}")
+
+# Interpret results
+if p_val < 0.05:
+    print("The difference in response lengths is statistically significant.")
+else:
+    print("The difference in response lengths is not statistically significant.")
+```

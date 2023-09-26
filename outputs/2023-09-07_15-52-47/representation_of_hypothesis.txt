@@ -1,0 +1,16 @@
+Original Hypothesis:
+Hypothesis 3: We could modify the prompt to specify the format of the desired answer. For example, instead of asking "What is 1 + 1?", we could ask "Provide the numerical answer to 1 + 1".
+
+Refined Hypothesis:
+Hypothesis 3: Modifying the format of a question prompt can influence the type of response received. Specifically, when asking a mathematical question, specifying that the answer should be in numerical format will increase the likelihood of receiving a numerical response. 
+
+For example, instead of asking "What is 1 + 1?", which could elicit a variety of response types (e.g., "two", "2", "a pair"), we hypothesize that asking "Provide the numerical answer to 1 + 1" will more likely result in a numerical response (e.g., "2").
+
+To test this hypothesis, we could conduct an experiment where we ask a group of participants to answer both versions of the question and compare the types of responses received. 
+
+Mathematically, if N is the total number of participants, R1 is the number of numerical responses to the first question, and R2 is the number of numerical responses to the second question, our hypothesis could be expressed as:
+
+H0 (null hypothesis): R1/N = R2/N (The proportion of numerical responses is the same for both questions)
+H1 (alternative hypothesis): R1/N < R2/N (The proportion of numerical responses is greater for the second question) 
+
+We could then use a statistical test (e.g., chi-square test for independence) to determine whether the difference in proportions is statistically significant.

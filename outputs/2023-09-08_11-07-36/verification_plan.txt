@@ -1,0 +1,23 @@
+Verification Plan:
+
+1. Define the Dataset:
+   1.1. Create a dataset of simple mathematical problems that can be solved by the LLM. The dataset should be large enough to provide statistically significant results. For instance, a dataset of 1000 problems could be used.
+
+2. Define the Scoring System:
+   2.1. Define a scoring system to quantify the directness of the LLM's responses. For instance, a response that only contains the answer could be given a score of 1, while a response that contains additional information could be given a score of 0.
+   2.2. This scoring system should be clearly defined and consistently applied to all responses.
+
+3. Run the Trials:
+   3.1. For each problem in the dataset, ask the LLM the problem in the two different ways: "What is X + Y?" and "Calculate X + Y and provide the numerical answer only".
+   3.2. Record the LLM's responses to each problem in both formats.
+
+4. Score the Responses:
+   4.1. Apply the scoring system to each of the LLM's responses. 
+   4.2. For each problem, compare the scores of the two responses. If the score for the response to "Calculate X + Y and provide the numerical answer only" is higher, record this as a success for the hypothesis. If the scores are equal or the score for the response to "What is X + Y?" is higher, record this as a failure for the hypothesis.
+
+5. Analyze the Results:
+   5.1. Calculate the percentage of successes for the hypothesis. If the percentage of successes is significantly higher than 50%, this would provide evidence in support of the hypothesis.
+   5.2. Perform a statistical test, such as a chi-square test, to determine whether the difference in success rates is statistically significant. If the p-value is less than 0.05, this would provide strong evidence in support of the hypothesis.
+
+6. Draw Conclusions:
+   6.1. Based on the results of the analysis, draw conclusions about the validity of the hypothesis. If the results support the hypothesis, consider implementing the refined prompting strategy in the LLM. If the results do not support the hypothesis, consider alternative strategies for improving the directness of the LLM's responses.

@@ -1,0 +1,29 @@
+Verification Plan:
+
+1. Define the Metrics:
+   - Precision: Precision is the proportion of relevant instances among the retrieved instances. In this case, it would be the proportion of responses that are directly related to the instructions among all responses.
+
+2. Data Collection:
+   - Collect a set of questions that can be answered by the LLM. These questions should be diverse and cover different topics to ensure the generalizability of the results. 
+
+3. Experiment Design:
+   - Divide the questions into two groups. One group will be asked in the traditional format (e.g., "What is 1 + 1?") and the other group will be asked in the modified format (e.g., "Provide the numerical answer to 1 + 1").
+   - Ensure that the two groups of questions are equivalent in terms of difficulty and topic distribution to avoid bias.
+
+4. Run the Experiment:
+   - Input the traditional format questions into the LLM and record the responses.
+   - Input the modified format questions into the LLM and record the responses.
+
+5. Data Analysis:
+   - For each group, calculate the precision of the responses. This can be done by dividing the number of responses that are directly related to the instructions by the total number of responses.
+   - Compare the precision of the responses between the two groups. If the precision of the responses to the modified format questions is significantly higher than the precision of the responses to the traditional format questions, then the hypothesis is supported.
+
+6. Statistical Testing:
+   - Perform a statistical test (e.g., t-test) to determine whether the difference in precision between the two groups is statistically significant. If the p-value is less than 0.05, then the difference is statistically significant.
+
+7. Interpretation and Conclusion:
+   - If the results support the hypothesis, conclude that modifying the prompt to explicitly request a concise answer can increase the precision of the responses from the LLM.
+   - If the results do not support the hypothesis, conclude that modifying the prompt does not significantly affect the precision of the responses from the LLM.
+
+8. Reporting:
+   - Document the entire process, including the experiment design, data analysis, statistical testing, and conclusions. This will provide transparency and allow others to replicate the study if needed.

@@ -1,0 +1,1 @@
+Hypothesis 3: We could modify the prompt to specify the format of the desired answer. For example, instead of asking "What is 1 + 1?", we could ask "Provide the numerical answer to 1 + 1".

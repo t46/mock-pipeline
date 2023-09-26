@@ -1,0 +1,23 @@
+Original Hypothesis:
+Using a different prompt structure could lead to more direct responses. For example, instead of asking "What is 1 + 1?", the prompt could be "Calculate: 1 + 1". This might encourage the model to generate a more direct response.
+
+Refined Hypothesis:
+The structure of a prompt significantly influences the directness of responses in a model. Specifically, prompts that explicitly request a calculation (e.g., "Calculate: 1 + 1") will yield more direct responses than prompts that pose a question (e.g., "What is 1 + 1?"). 
+
+To test this hypothesis, we can use a set of mathematical problems and present them to the model in both formats. We can then measure the 'directness' of the response by creating a scoring system. For instance, a score of '1' can be assigned if the model provides the correct answer directly, a score of '0.5' if the model provides the correct answer but with additional unnecessary information, and a score of '0' if the model fails to provide the correct answer. 
+
+Mathematically, this can be represented as:
+
+Let Pq be a set of prompts in question format and Pc be the same set of prompts in calculation format. Let Rq and Rc be the corresponding responses from the model. 
+
+We define a function D(r) that measures the directness of a response r:
+
+D(r) = 1, if r is a direct correct answer
+D(r) = 0.5, if r is a correct answer with additional information
+D(r) = 0, if r is an incorrect answer
+
+Our hypothesis can then be represented as:
+
+For all prompts p in Pq and Pc, D(Rq) < D(Rc)
+
+This means that for all prompts, the directness of the response to the calculation format is greater than the directness of the response to the question format.

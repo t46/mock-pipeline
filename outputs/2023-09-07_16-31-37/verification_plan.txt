@@ -1,0 +1,26 @@
+Verification Plan:
+
+1. Data Collection:
+   1.1. Prepare a list of questions that can be answered concisely. These questions should cover a variety of topics to ensure the results are not biased towards a specific subject. For example, the questions could include mathematical problems, factual questions, and simple yes/no questions.
+   1.2. Create two versions of each question: a traditional version (e.g., "What is 1 + 1?") and a modified version that explicitly requests a concise answer (e.g., "Provide a one-word answer: What is 1 + 1?").
+
+2. Experiment Setup:
+   2.1. Randomly divide the questions into two sets, ensuring each set has an equal number of traditional and modified questions.
+   2.2. Input each question into the LLM (GPT-4) and record the output.
+
+3. Data Analysis:
+   3.1. For each response, calculate the length of the response. This could be done by counting the number of words or characters, depending on the level of precision required.
+   3.2. Calculate the average length of responses to traditional questions (T) and the average length of responses to modified questions (M).
+
+4. Hypothesis Testing:
+   4.1. Compare the values of T and M. If M < T, this would support the hypothesis that modifying the prompt to explicitly request a concise answer results in more concise responses.
+   4.2. To ensure the results are statistically significant, perform a t-test to compare the means of the two groups. If the p-value is less than 0.05, this would indicate that the difference in response lengths is statistically significant.
+
+5. Report Findings:
+   5.1. Document the process and findings, including the average response lengths for traditional and modified questions, the results of the t-test, and any other relevant statistics.
+   5.2. If the hypothesis is supported, provide recommendations for how to phrase prompts to elicit more concise responses from the LLM. If the hypothesis is not supported, suggest potential reasons why and propose new hypotheses to test.
+
+6. Repeat Experiment:
+   6.1. If necessary, repeat the experiment with different questions or modifications to the prompts to further test the hypothesis. 
+
+This plan will allow us to verify whether modifying the prompt to explicitly request a concise answer results in more concise responses from the LLM.

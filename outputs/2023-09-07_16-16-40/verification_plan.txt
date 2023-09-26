@@ -1,0 +1,31 @@
+Verification Plan:
+
+1. Define the Experiment:
+   1.1. Define what constitutes a general prompt (G) and a specific prompt (S). For example, a general prompt might be "What is 1 + 1?" and a specific prompt might be "Provide the numerical answer to 1 + 1".
+   1.2. Define what constitutes a precise response. For example, a precise response to the above prompts would be "2".
+
+2. Create Datasets:
+   2.1. Create a dataset of general prompts (G). This dataset should contain a variety of questions, not just mathematical ones, to ensure the results are generalizable.
+   2.2. Create a corresponding dataset of specific prompts (S). Each specific prompt should correspond to a general prompt in the G dataset, but be more specific in its request for a response.
+
+3. Conduct the Experiment:
+   3.1. Input the general prompts (G) into the LLM and record the responses (R_G).
+   3.2. Input the specific prompts (S) into the LLM and record the responses (R_S).
+
+4. Analyze the Results:
+   4.1. For each response in R_G and R_S, determine whether it is a precise response as defined in step 1.2.
+   4.2. Calculate the proportion of precise responses in R_G and R_S. This will give a measure of the precision of the responses to the general and specific prompts.
+
+5. Compare the Results:
+   5.1. Compare the precision of the responses to the general prompts (R_G) with the precision of the responses to the specific prompts (R_S).
+   5.2. If the precision of R_S is significantly greater than the precision of R_G, this would support the hypothesis. If there is no significant difference, or if the precision of R_G is greater, this would not support the hypothesis.
+
+6. Document the Findings:
+   6.1. Write a report detailing the experiment, the results, and the conclusions. This report should include all the data collected, the calculations made, and any statistical tests used to compare the results.
+   6.2. The report should also discuss any limitations of the experiment and suggest potential improvements for future research.
+
+7. Peer Review:
+   7.1. Submit the report for peer review. This will ensure that the experiment was conducted correctly, the results are valid, and the conclusions are justified by the data.
+
+8. Repeat the Experiment:
+   8.1. If the results are inconclusive or the hypothesis is not supported, refine the hypothesis and repeat the experiment. This iterative process is a fundamental part of the scientific method and helps to ensure that the results are reliable and valid.

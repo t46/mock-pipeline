@@ -1,0 +1,1 @@
+Hypothesis 3: We could modify the prompt to instruct the LLM to provide a direct answer. For example, instead of asking "What is 1 + 1?", we could ask "Provide a one-word answer: What is 1 + 1?". This might encourage the model to generate a more concise response.

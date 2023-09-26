@@ -1,0 +1,28 @@
+Verification Plan:
+
+1. Define the Experiment:
+   1.1. Define a set of questions that will be used in the experiment. These questions should be diverse and cover a range of topics to ensure the results are not biased towards a specific type of question.
+   1.2. For each question, create two versions: a general version and a specific version. The specific version should be designed to elicit a more precise response according to the hypothesis.
+
+2. Collect Data:
+   2.1. Input the general version of each question into the LLM and record the output.
+   2.2. Repeat the process with the specific version of each question.
+   2.3. Ensure that the LLM is reset or cleared of context between each question to avoid any influence from previous questions.
+
+3. Analyze the Data:
+   3.1. For each question, compare the output from the general version to the output from the specific version.
+   3.2. Determine whether the specific version of the question resulted in a more precise response. This could be done by checking if the response to the specific question is shorter, contains fewer extraneous details, or more directly answers the question.
+   3.3. Repeat this process for all questions.
+
+4. Quantify the Results:
+   4.1. Calculate the variance of the responses to the general and specific prompts. This can be done by creating a function that takes as input a list of responses and outputs the variance.
+   4.2. Compare the variance of the responses to the general prompts to the variance of the responses to the specific prompts. If the variance of the responses to the specific prompts is less than the variance of the responses to the general prompts, this would support the hypothesis.
+
+5. Draw Conclusions:
+   5.1. If the results support the hypothesis, conclude that making a question prompt more specific can lead to more precise responses from the LLM.
+   5.2. If the results do not support the hypothesis, conclude that the specificity of the question prompt does not significantly influence the precision of the LLM's responses.
+   5.3. Consider potential reasons for the results and suggest further research or modifications to the experiment if necessary.
+
+6. Document the Results:
+   6.1. Write a detailed report of the experiment, including the methodology, results, conclusions, and any potential limitations or areas for further research.
+   6.2. Share the report with relevant stakeholders and use the findings to inform future use of the LLM.

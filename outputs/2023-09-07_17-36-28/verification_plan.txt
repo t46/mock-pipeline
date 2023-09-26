@@ -1,0 +1,26 @@
+Verification Plan:
+
+1. Data Collection:
+   1.1. Prepare a dataset of questions that can be answered in one word or a short phrase. The dataset should be large enough to provide statistically significant results. For example, a dataset of 1000 questions could be used.
+   1.2. Divide the dataset into two equal parts. One part will be used for the standard prompt and the other for the concise prompt.
+
+2. Experiment Setup:
+   2.1. For the first half of the dataset, use the standard prompt format. For example, "What is 1 + 1?".
+   2.2. For the second half of the dataset, modify the prompt to explicitly request a concise answer. For example, "Give a one-word answer: What is 1 + 1?".
+   2.3. Input these prompts into the LLM and record the responses.
+
+3. Data Analysis:
+   3.1. Measure the length of each response from the LLM. This can be done by counting the number of words in each response.
+   3.2. Calculate the mean length of responses (μ1) to the standard prompt and the mean length of responses (μ2) to the concise prompt.
+
+4. Hypothesis Testing:
+   4.1. Perform a two-sample t-test to compare the means of the two samples. The null hypothesis (H0) is that μ1 = μ2, and the alternative hypothesis (H1) is that μ1 ≠ μ2.
+   4.2. If the p-value is less than 0.05, reject the null hypothesis. This would suggest that the specificity of a prompt does influence the conciseness of the model's response.
+
+5. Result Interpretation:
+   5.1. If the null hypothesis is rejected, conclude that modifying the prompt to explicitly request a concise answer does guide the model to produce more direct responses.
+   5.2. If the null hypothesis is not rejected, conclude that modifying the prompt does not significantly affect the conciseness of the model's response.
+
+6. Report Writing:
+   6.1. Document the entire process, from data collection to result interpretation, in a report. Include details about the dataset, the experiment setup, the statistical analysis, and the conclusions drawn from the hypothesis testing.
+   6.2. Share the report with stakeholders and discuss the implications of the findings for future use of the LLM.

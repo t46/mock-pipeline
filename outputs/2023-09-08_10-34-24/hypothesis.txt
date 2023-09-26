@@ -1,0 +1,1 @@
+Hypothesis 2: We could modify the prompt to explicitly request a concise answer. For example, instead of asking "What is 1 + 1?", we could ask "Provide the numerical answer to 1 + 1".

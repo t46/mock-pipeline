@@ -1,0 +1,40 @@
+```python
+import numpy as np
+from scipy import stats
+from sklearn.metrics import precision_score
+
+# Step 1: Define the Metrics
+# Precision is already defined in the verification plan
+
+# Step 2: Data Collection
+# Assuming we have a function get_questions() that returns a list of questions
+questions = get_questions()
+
+# Step 3: Experiment Design
+np.random.shuffle(questions)
+mid = len(questions) // 2
+traditional_questions = questions[:mid]
+modified_questions = ["Provide the numerical answer to " + q for q in questions[mid:]]
+
+# Step 4: Run the Experiment
+# Assuming we have a function ask_question(q) that inputs a question to the LLM and returns the response
+traditional_responses = [ask_question(q) for q in traditional_questions]
+modified_responses = [ask_question(q) for q in modified_questions]
+
+# Step 5: Data Analysis
+# Assuming we have a function is_relevant(r) that returns True if a response is directly related to the instructions and False otherwise
+traditional_precisions = [precision_score(is_relevant(r), r) for r in traditional_responses]
+modified_precisions = [precision_score(is_relevant(r), r) for r in modified_responses]
+
+# Step 6: Statistical Testing
+t_stat, p_value = stats.ttest_ind(traditional_precisions, modified_precisions)
+
+# Step 7: Interpretation and Conclusion
+if p_value < 0.05:
+    print("Modifying the prompt to explicitly request a concise answer can increase the precision of the responses from the LLM.")
+else:
+    print("Modifying the prompt does not significantly affect the precision of the responses from the LLM.")
+
+# Step 8: Reporting
+# This code documents the entire process, including the experiment design, data analysis, statistical testing, and conclusions.
+```

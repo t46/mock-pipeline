@@ -1,0 +1,1 @@
+1. Improve Prompt Design: The way the prompt is designed can influence the output of the LLM. Experiment with different prompt designs to encourage the model to provide more concise answers. For example, instead of asking "What is 1 + 1?", ask "Provide the numerical answer for 1 + 1".

@@ -1,0 +1,25 @@
+Verification Plan:
+
+1. Define Directness:
+   Directness will be defined as the degree to which the response from the LLM directly answers the prompt without extraneous information. A response will be considered more direct if it contains fewer words and directly answers the question without additional context or explanation.
+
+2. Create a Dataset:
+   Create a dataset of mathematical problems that can be used as prompts. Each problem should be able to be presented in two ways: as a direct request for a numerical result (Pd) and as a more open-ended question (Po). For example, the problem "1 + 1" could be presented as "Provide the numerical result of 1 + 1" (Pd) and "What is 1 + 1?" (Po).
+
+3. Generate Responses:
+   Input each prompt into the LLM and record the responses. There should be two responses for each problem: one for the direct prompt (Rd) and one for the open-ended prompt (Ro).
+
+4. Evaluate Directness:
+   Evaluate the directness of each response. This could be done by counting the number of words in the response, with fewer words indicating greater directness. Alternatively, a more sophisticated method could be used, such as using a machine learning model trained to evaluate directness.
+
+5. Compare Directness:
+   Compare the directness of the responses to the direct prompts (Rd) with the directness of the responses to the open-ended prompts (Ro). This could be done using a statistical test, such as a paired t-test, to determine if the difference in directness is statistically significant.
+
+6. Draw Conclusions:
+   If the responses to the direct prompts (Rd) are significantly more direct than the responses to the open-ended prompts (Ro), this would support the hypothesis. If there is no significant difference in directness, or if the responses to the open-ended prompts (Ro) are more direct, this would not support the hypothesis.
+
+7. Document Results:
+   Document the results of the test, including the statistical analysis and any conclusions drawn. This should include a detailed description of the methodology used, as well as any limitations or potential sources of error.
+
+8. Review and Refine:
+   Review the results and refine the hypothesis if necessary. If the hypothesis is not supported, consider other factors that might influence the directness of the LLM's responses, such as the complexity of the problem or the specificity of the prompt. Repeat the test with the refined hypothesis.

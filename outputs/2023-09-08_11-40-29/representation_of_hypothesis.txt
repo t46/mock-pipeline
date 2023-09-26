@@ -1,0 +1,11 @@
+Original Hypothesis:
+We could refine the prompts to be more specific. For example, instead of asking "What is 1 + 1?", we could ask "Provide the numerical answer to 1 + 1". This might encourage the model to respond with just the number.
+
+Refined Hypothesis:
+The specificity of a prompt influences the precision of a model's response. In particular, if we modify the prompt from "What is 1 + 1?" to "Provide the numerical answer to 1 + 1", the model is more likely to respond with a single numerical answer, rather than a sentence or phrase.
+
+This hypothesis can be tested by running an experiment where we use both types of prompts and compare the responses. We can quantify the precision of a response by defining a scoring system, for example, a response gets a score of 1 if it is a single number, and 0 otherwise. Then, we can use a statistical test, such as a t-test, to compare the scores from the two types of prompts. 
+
+Mathematically, we can express this hypothesis as follows:
+
+Let X be a random variable representing the score of a response to the original prompt, and Y be a random variable representing the score of a response to the refined prompt. Our hypothesis is that the expected value of Y is greater than the expected value of X, i.e., E[Y] > E[X].

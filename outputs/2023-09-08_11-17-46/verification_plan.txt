@@ -1,0 +1,27 @@
+Verification Plan:
+
+1. Data Collection:
+   1.1. Prepare a set of questions that can be answered in a single word or a short phrase. These questions should cover a variety of topics to ensure the results are not biased towards a specific type of question.
+   1.2. For each question, create two versions: one in the original format (e.g., "What is 1 + 1?") and one in the modified format (e.g., "Provide a one-word answer: What is 1 + 1?").
+
+2. Experiment Setup:
+   2.1. Randomly divide the questions into two groups: Group A will receive the original prompt, and Group B will receive the modified prompt.
+   2.2. Ensure that the number of questions in both groups is equal to avoid any bias.
+
+3. Execution:
+   3.1. Input the prompts from Group A into the LLM and record the responses.
+   3.2. Repeat the process for Group B.
+   3.3. Ensure that the LLM is in the same state (e.g., same training, same parameters) when testing both groups to avoid any confounding factors.
+
+4. Data Analysis:
+   4.1. For each response, determine whether it is a direct response (i.e., a single word or short phrase directly answering the question) or not.
+   4.2. Calculate the proportion of direct responses (P1) in Group A and the proportion of direct responses (P2) in Group B.
+
+5. Hypothesis Testing:
+   5.1. Use a chi-square test of independence or a z-test for proportions to test the hypothesis that P2 > P1. The choice of test depends on the sample size and the distribution of responses.
+   5.2. If the p-value is less than the chosen significance level (e.g., 0.05), reject the null hypothesis (i.e., there is no difference in the proportion of direct responses between the two groups). This would provide evidence in support of the hypothesis that modifying the prompt structure results in a higher proportion of direct responses.
+   5.3. If the p-value is greater than the chosen significance level, do not reject the null hypothesis. This would suggest that modifying the prompt structure does not significantly affect the proportion of direct responses.
+
+6. Reporting:
+   6.1. Document the entire process, including the experiment setup, the LLM's responses, the data analysis, and the results of the hypothesis test.
+   6.2. Discuss potential limitations of the study and suggestions for future research. For example, the results may not generalize to all types of questions or all versions of the LLM. Future research could explore different ways of modifying the prompt structure or use a larger sample of questions.

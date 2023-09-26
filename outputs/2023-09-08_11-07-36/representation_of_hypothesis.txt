@@ -1,0 +1,17 @@
+Original Hypothesis:
+We could refine the way we prompt the LLM. For instance, instead of asking "What is 1 + 1?", we could ask "Calculate 1 + 1 and provide the numerical answer only". This might encourage the model to provide a more direct response.
+
+Refined Hypothesis:
+The refined prompting strategy, where the LLM (Language Learning Model) is asked to "Calculate 1 + 1 and provide the numerical answer only" instead of being asked "What is 1 + 1?", will result in a more direct response from the model.
+
+To test this hypothesis, we can use a comparative analysis method. We will compare the responses of the LLM when asked in the two different ways. The hypothesis can be represented mathematically as:
+
+Let R1 represent the response of the LLM when asked "What is 1 + 1?" and R2 represent the response when asked "Calculate 1 + 1 and provide the numerical answer only".
+
+If the hypothesis is correct, then the directness of R2 should be greater than R1. We can define directness as the degree to which the response is to the point and without any additional or unnecessary information. This can be quantified using a scoring system, where a higher score indicates a more direct response.
+
+Mathematically, this can be represented as:
+
+Directness(R2) > Directness(R1)
+
+This hypothesis can be tested by running a series of trials where the LLM is asked the same question in the two different ways and comparing the directness of the responses.

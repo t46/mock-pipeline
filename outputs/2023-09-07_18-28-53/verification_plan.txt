@@ -1,0 +1,29 @@
+Verification Plan:
+
+1. **Data Collection:**
+    1.1. Prepare a set of questions that can be answered concisely. These questions should cover a variety of topics to ensure the results are not biased towards a specific subject. For example, the questions could include simple math problems, factual questions about geography, history, etc.
+    1.2. Create two versions of each question: a general version (e.g., "What is 1 + 1?") and a specific version that explicitly requests a concise answer (e.g., "Provide a one-word answer: What is 1 + 1?").
+    1.3. The questions should be randomized to avoid any order effects.
+
+2. **Experiment Execution:**
+    2.1. Input each question into the LLM (GPT-4) and record the output.
+    2.2. Repeat this process for all questions in the dataset.
+
+3. **Data Analysis:**
+    3.1. For each response, calculate the length of the response. This could be the number of words, characters, or sentences, depending on the level of granularity desired.
+    3.2. Calculate the average length of responses for the general questions (Avg(Rg)) and the specific questions (Avg(Rs)).
+    3.3. Compare Avg(Rg) and Avg(Rs) to see if there is a significant difference.
+
+4. **Statistical Testing:**
+    4.1. Perform a statistical test to determine if the difference in average response length is statistically significant. A t-test could be used for this purpose.
+    4.2. If the p-value is less than 0.05, reject the null hypothesis (H0: Avg(Rs) = Avg(Rg)) and accept the alternative hypothesis (H1: Avg(Rs) < Avg(Rg)). This would support the hypothesis that the specificity of a question prompt directly influences the conciseness of the response.
+
+5. **Result Interpretation:**
+    5.1. If the results support the hypothesis, consider implementing more specific prompts in the LLM to encourage more concise responses.
+    5.2. If the results do not support the hypothesis, further investigation may be needed to understand why the LLM is not responding as expected.
+
+6. **Report Writing:**
+    6.1. Document the entire process, from the preparation of the questions to the execution of the experiment, data analysis, and interpretation of the results.
+    6.2. Write a detailed report outlining the methodology, findings, and any potential implications or recommendations based on the results. 
+
+This plan will help verify whether the specificity of a question prompt directly influences the conciseness of the response from a large language model.

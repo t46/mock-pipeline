@@ -1,0 +1,23 @@
+Verification Plan:
+
+1. Data Collection:
+   1.1. Prepare a list of prompts that are typically used with the LLM. These prompts should be diverse and cover a wide range of topics to ensure the results are not biased towards a specific type of question. Let's call this list 'Prompts'.
+   1.2. For each prompt in 'Prompts', create a modified version that includes a directive for a one-word answer. Let's call this list 'Modified Prompts'.
+
+2. Experimentation:
+   2.1. Input each prompt from 'Prompts' into the LLM and record the responses. Let's call this list 'Responses'.
+   2.2. Input each prompt from 'Modified Prompts' into the LLM and record the responses. Let's call this list 'Modified Responses'.
+   2.3. Ensure that the order of prompts and their corresponding responses are maintained in 'Prompts', 'Modified Prompts', 'Responses', and 'Modified Responses' for accurate comparison.
+
+3. Data Analysis:
+   3.1. For each pair of responses in 'Responses' and 'Modified Responses', evaluate the directness of the response. This can be done by counting the number of words in the response. The assumption here is that a more direct response will have fewer words.
+   3.2. Create two lists, 'Directness_Responses' and 'Directness_Modified Responses', which contain the directness scores for 'Responses' and 'Modified Responses' respectively.
+
+4. Hypothesis Testing:
+   4.1. Perform a paired t-test on 'Directness_Responses' and 'Directness_Modified Responses'. The null hypothesis (H0) is that there is no difference in the directness of the responses (mean of 'Directness_Responses' = mean of 'Directness_Modified Responses'), and the alternative hypothesis (H1) is that the response to the modified prompt is more direct (mean of 'Directness_Responses' > mean of 'Directness_Modified Responses').
+   4.2. If the p-value is less than 0.05, reject the null hypothesis and accept the alternative hypothesis. This would mean that modifying the prompt to include a directive for a one-word answer does indeed result in a more direct response from the LLM.
+   4.3. If the p-value is greater than 0.05, do not reject the null hypothesis. This would mean that modifying the prompt does not significantly affect the directness of the response from the LLM.
+
+5. Reporting:
+   5.1. Document the entire process, including the prompts used, the responses received, the directness scores, the statistical test used, and the results of the test.
+   5.2. Write a conclusion summarizing the findings of the experiment. If the hypothesis was supported, suggest potential applications and further research. If the hypothesis was not supported, suggest potential reasons and areas for further investigation.

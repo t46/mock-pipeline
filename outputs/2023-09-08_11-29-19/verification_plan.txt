@@ -1,0 +1,26 @@
+Verification Plan:
+
+1. **Data Collection:**
+    1.1. Identify a set of general prompts that are typically used with the LLM. These should be prompts that have previously resulted in extraneous text in the LLM's responses.
+    1.2. For each general prompt, create a corresponding specific prompt. The specific prompt should be designed to elicit the same information as the general prompt, but with more specificity to encourage a more direct response.
+    1.3. Ensure that the sets of general and specific prompts are of equal size to avoid bias in the experiment.
+
+2. **Experiment Execution:**
+    2.1. Input each general prompt into the LLM and record the response.
+    2.2. Input each specific prompt into the LLM and record the response.
+    2.3. Ensure that the LLM is in the same state (i.e., not updated or modified) during the entire experiment to maintain consistency.
+
+3. **Data Analysis:**
+    3.1. Categorize each response from the LLM as either a numerical response or a non-numerical response. A numerical response is one that contains only the numerical answer to the prompt, while a non-numerical response contains additional text.
+    3.2. Count the number of numerical responses for the general prompts (N_G) and the specific prompts (N_S).
+
+4. **Statistical Testing:**
+    4.1. Perform a chi-square test for independence to compare the proportions of numerical responses for the general and specific prompts.
+    4.2. The null hypothesis (H0) is that the proportion of numerical responses is the same for general and specific prompts (P(N_G) = P(N_S)).
+    4.3. The alternative hypothesis (H1) is that the proportion of numerical responses is less for general prompts than for specific prompts (P(N_G) < P(N_S)).
+    4.4. If the p-value from the chi-square test is less than 0.05, reject the null hypothesis and conclude that the specificity of prompts influences the type of response from the LLM.
+
+5. **Result Interpretation:**
+    5.1. If the null hypothesis is rejected, this provides evidence in support of the hypothesis that more specific prompts result in more numerical responses from the LLM.
+    5.2. If the null hypothesis is not rejected, this suggests that the specificity of prompts does not significantly influence the type of response from the LLM.
+    5.3. In either case, the results of this experiment should be interpreted with caution, as other factors not controlled for in this experiment could also influence the LLM's responses.

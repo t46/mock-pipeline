@@ -1,0 +1,30 @@
+Verification Plan:
+
+1. Define the Sets of Prompts:
+   1.1. Define a set of general prompts (P_G). These prompts should be general questions or instructions that you would typically input into the LLM.
+   1.2. Define a set of specific prompts (P_S). These prompts should be more specific versions of the prompts in P_G. For example, if a prompt in P_G is "What is 1 + 1?", the corresponding prompt in P_S could be "Provide the numerical answer to 1 + 1".
+
+2. Run the LLM with the Prompts:
+   2.1. Run the LLM with the prompts in P_G and record the responses.
+   2.2. Run the LLM with the prompts in P_S and record the responses.
+
+3. Define the Specificity Score:
+   3.1. Define a method for calculating the specificity score (S) of a response. This could be the number of non-generic words in the response, the length of the response, or another suitable metric.
+   3.2. Implement this method in a computer program or script.
+
+4. Calculate the Specificity Scores:
+   4.1. Use the method defined in step 3 to calculate the specificity scores of the responses to the prompts in P_G.
+   4.2. Use the same method to calculate the specificity scores of the responses to the prompts in P_S.
+
+5. Compare the Specificity Scores:
+   5.1. For each pair of corresponding prompts in P_G and P_S, compare the specificity scores of the responses. 
+   5.2. Record whether the score for the response to the prompt in P_S is higher than the score for the response to the corresponding prompt in P_G.
+
+6. Analyze the Results:
+   6.1. Calculate the proportion of prompt pairs for which the score for the response to the prompt in P_S is higher than the score for the response to the corresponding prompt in P_G.
+   6.2. If this proportion is significantly greater than 0.5 (indicating that the responses to the prompts in P_S are more specific than the responses to the prompts in P_G more often than not), this provides evidence in support of the hypothesis.
+   6.3. If this proportion is not significantly greater than 0.5, this does not support the hypothesis.
+
+7. Draw Conclusions:
+   7.1. Based on the results of the analysis in step 6, draw conclusions about the validity of the hypothesis.
+   7.2. If the hypothesis is supported, consider how to incorporate the use of more specific prompts into the operation of the LLM. If the hypothesis is not supported, consider other ways to improve the specificity of the LLM's responses.

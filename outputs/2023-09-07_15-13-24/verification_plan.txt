@@ -1,0 +1,30 @@
+Verification Plan:
+
+1. Define Specificity and Relevance:
+   1.1. Specificity: Define a scoring system to measure the specificity of a prompt. For instance, a prompt that explicitly asks for a numerical answer could be scored higher than a prompt that does not.
+   1.2. Relevance: Define a scoring system to measure the relevance of a response. For instance, a response that directly answers the question could be scored higher than a response that includes extraneous information.
+
+2. Create a Dataset:
+   2.1. Generate a set of prompts with varying levels of specificity. For instance, for the question "What is 1 + 1?", prompts could range from "What is 1 + 1?" (low specificity) to "Calculate 1 + 1 and provide only the numerical answer" (high specificity).
+   2.2. Ensure that the dataset is diverse and covers a wide range of topics and types of questions to ensure the results are generalizable.
+
+3. Generate Responses:
+   3.1. Input each prompt into the LLM and record the generated response.
+
+4. Score Specificity and Relevance:
+   4.1. Score the specificity of each prompt using the scoring system defined in step 1.1.
+   4.2. Score the relevance of each response using the scoring system defined in step 1.2.
+
+5. Analyze the Results:
+   5.1. Calculate the correlation between the specificity scores and the relevance scores. This can be done using a statistical method such as Pearson's correlation.
+   5.2. If the correlation is positive and statistically significant, this would support the hypothesis that there is a positive correlation between the specificity of a prompt and the relevance of a response.
+
+6. Conduct a Human Evaluation:
+   6.1. To further validate the results, conduct a human evaluation. Have human evaluators score the relevance of a subset of the responses.
+   6.2. Compare the human scores to the scores generated in step 4.2. If they align, this would provide further support for the hypothesis.
+
+7. Report the Results:
+   7.1. Compile the results into a report that includes the methodology, results, and conclusions.
+   7.2. Discuss any limitations of the study and potential areas for future research.
+
+This plan will allow us to test the hypothesis that the specificity of prompts given to a Language Model (LLM) has a direct impact on the relevance of its generated responses. By systematically varying the specificity of the prompts and evaluating the relevance of the responses, we can determine whether there is a correlation between these two variables.

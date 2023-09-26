@@ -1,0 +1,13 @@
+Original Hypothesis:
+1. Improve Prompt Design: The way the prompt is designed can influence the output of the LLM. Experiment with different prompt designs to encourage the model to provide more concise answers. For example, instead of asking "What is 1 + 1?", ask "Provide the numerical answer for 1 + 1".
+
+Refined Hypothesis:
+1. The Effect of Prompt Design on LLM Output: The structure and wording of a prompt can significantly influence the output of a Language Learning Model (LLM). By experimenting with different prompt designs, it is hypothesized that the model can be encouraged to provide more concise and direct answers. For instance, a prompt that is more direct and specific, such as "Provide the numerical answer for 1 + 1", is hypothesized to yield a more concise response from the LLM than a more open-ended prompt like "What is 1 + 1?".
+
+To test this hypothesis, a comparative study can be conducted where the LLM is given two sets of prompts: one set with open-ended questions and another with more direct, specific questions. The conciseness of the LLM's responses to each set of prompts can then be quantitatively measured and compared. 
+
+Mathematically, this can be represented as:
+
+Let A represent the average length of responses to open-ended prompts and B represent the average length of responses to direct, specific prompts. If the hypothesis is correct, then B < A. 
+
+This hypothesis can be tested using a t-test for independent samples, with the null hypothesis being that there is no difference in the conciseness of responses between the two types of prompts (i.e., B = A), and the alternative hypothesis being that responses to direct, specific prompts are more concise (i.e., B < A).

@@ -1,0 +1,1 @@
+4. Prompt Engineering: Modify the prompts given to the LLM to encourage it to generate more relevant responses. For example, instead of asking "What is 1 + 1?", the prompt could be "Calculate 1 + 1 and provide only the numerical answer."

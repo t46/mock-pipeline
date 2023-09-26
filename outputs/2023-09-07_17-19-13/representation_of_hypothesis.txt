@@ -1,0 +1,23 @@
+Original Hypothesis:
+Hypothesis 1: We could train the LLM with a more specific prompt structure that encourages it to provide concise answers. For example, instead of asking "What is 1 + 1?", we could ask "Provide a one-word answer: What is 1 + 1?".
+
+Refined Hypothesis:
+Hypothesis 1: Training the Language Learning Model (LLM) with a more specific prompt structure will result in the model providing more concise answers. 
+
+To test this hypothesis, we will use the following procedure:
+
+1. Define the specific prompt structure: In this case, the specific prompt structure is defined as a question followed by a directive for a one-word answer. For example, "Provide a one-word answer: What is 1 + 1?".
+
+2. Train the LLM: The LLM will be trained using a dataset that includes a variety of questions structured in the defined specific prompt structure.
+
+3. Test the LLM: After training, the LLM will be tested by providing it with new questions structured in the specific prompt structure. The conciseness of the LLM's answers will be evaluated.
+
+4. Compare with a control group: The performance of the LLM trained with the specific prompt structure will be compared to a control group of LLMs trained with standard prompt structures.
+
+Mathematically, this can be represented as:
+
+Let A represent the average word count of answers from the LLM trained with the specific prompt structure, and B represent the average word count of answers from the control group of LLMs. 
+
+Our hypothesis can then be represented as: A < B. 
+
+This means that the average word count of answers from the LLM trained with the specific prompt structure (A) is less than the average word count of answers from the control group of LLMs (B), indicating that the LLM trained with the specific prompt structure provides more concise answers.

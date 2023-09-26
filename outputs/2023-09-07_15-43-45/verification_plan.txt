@@ -1,0 +1,30 @@
+Verification Plan:
+
+1. Define the Experiment:
+   1.1. Define what constitutes a "general" prompt and a "specific" prompt. For example, a general prompt might be "What is 1 + 1?" while a specific prompt might be "Provide the numerical answer to 1 + 1".
+   1.2. Define what constitutes a "precise" response. For example, a precise response might be one that contains only the numerical answer, such as "2".
+
+2. Create the Datasets:
+   2.1. Create a dataset of general prompts (G). This dataset should contain a variety of mathematical problems.
+   2.2. Create a corresponding dataset of specific prompts (S). Each specific prompt should correspond to a general prompt in the G dataset, but be more specific in its request for a numerical answer.
+
+3. Run the Experiment:
+   3.1. Input each prompt in the G dataset into the LLM and record the responses in a new dataset (Rg).
+   3.2. Input each prompt in the S dataset into the LLM and record the responses in another new dataset (Rs).
+
+4. Analyze the Results:
+   4.1. For each response in Rg, determine whether it is precise according to the definition established in step 1.2. Record the number of precise responses.
+   4.2. Repeat this process for each response in Rs.
+   4.3. Calculate the proportion of precise responses in Rg and Rs.
+
+5. Compare the Results:
+   5.1. Compare the proportion of precise responses in Rg and Rs. If the proportion is higher in Rs, this supports the hypothesis that more specific prompts result in more precise responses. If the proportion is not higher in Rs, this does not support the hypothesis.
+
+6. Draw Conclusions:
+   6.1. If the results support the hypothesis, conclude that more specific prompts result in more precise responses from the LLM.
+   6.2. If the results do not support the hypothesis, conclude that the specificity of the prompt does not significantly influence the precision of the LLM's response.
+   6.3. Consider potential reasons for the results and suggest further research to explore these reasons.
+
+7. Document the Results:
+   7.1. Write a report detailing the experiment, the results, and the conclusions. Include the original problem, the hypothesis, the experiment design, the results, and the conclusions.
+   7.2. Share the report with relevant stakeholders and consider their feedback for future experiments.

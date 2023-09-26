@@ -1,0 +1,53 @@
+import numpy as np
+import scipy.stats as stats
+from transformers import pipeline
+
+# Define the dataset
+questions = {
+    "general": ["What is 1 + 1?", "Who is the president of the United States?", "What is the capital of France?"],
+    "specific": ["Provide the numerical answer to 1 + 1", "Name the current president of the United States", "Tell me the capital city of France"]
+}
+
+# Initialize the language model
+llm = pipeline('text-generation')
+
+# Generate responses
+responses = {
+    "general": [llm(question)[0]['generated_text'] for question in questions["general"]],
+    "specific": [llm(question)[0]['generated_text'] for question in questions["specific"]]
+}
+
+# Define a scoring system
+def score_directness(response, question):
+    return int(response.strip().endswith(question.strip()))
+
+# Evaluate directness
+directness_scores = {
+    "general": [score_directness(response, question) for response, question in zip(responses["general"], questions["general"])],
+    "specific": [score_directness(response, question) for response, question in zip(responses["specific"], questions["specific"])]
+}
+
+# Analyze the results
+Dg = np.mean(directness_scores["general"])
+Ds = np.mean(directness_scores["specific"])
+
+# Statistical testing
+t_stat, p_val = stats.ttest_ind(directness_scores["general"], directness_scores["specific"])
+
+# Document the results
+results = {
+    "Dg": Dg,
+    "Ds": Ds,
+    "t_stat": t_stat,
+    "p_val": p_val
+}
+
+# Write a report
+report = f"""
+Average directness score for general prompts: {Dg}
+Average directness score for specific prompts: {Ds}
+T-statistic: {t_stat}
+P-value: {p_val}
+"""
+
+print(report)

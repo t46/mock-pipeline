@@ -1,0 +1,27 @@
+Verification Plan:
+
+1. Define the Specificity and Relevance Metrics:
+   1.1. Define Specificity (S): Specificity can be defined as the degree to which a prompt is clear, unambiguous, and direct. For instance, a prompt asking for a numerical answer only can be considered highly specific.
+   1.2. Define Relevance (R): Relevance can be defined as the degree to which the LLM's response directly answers the prompt without providing unnecessary information. A response that directly answers the prompt without any extraneous information can be considered highly relevant.
+
+2. Create a Dataset of Prompts:
+   2.1. Create a set of prompts with varying levels of specificity. For instance, for the math problem "1 + 1", prompts could range from "What is 1 + 1?" (low specificity) to "Calculate 1 + 1 and provide only the numerical answer" (high specificity).
+   2.2. Assign a specificity score (S) to each prompt based on the defined specificity metric.
+
+3. Generate Responses from the LLM:
+   3.1. Input each prompt from the dataset into the LLM and record the generated responses.
+
+4. Evaluate the Relevance of the Responses:
+   4.1. Evaluate the relevance of each response based on the defined relevance metric. Assign a relevance score (R) to each response.
+   4.2. This step may require human evaluators to accurately assess the relevance of the responses. Alternatively, a predefined evaluation script could be used if the responses can be objectively evaluated (e.g., for math problems, the script could check if the response is a numerical answer).
+
+5. Analyze the Relationship between Specificity and Relevance:
+   5.1. Plot the specificity scores (S) against the relevance scores (R) to visually inspect the relationship between the two variables.
+   5.2. Perform a correlation analysis to quantify the relationship between S and R. A positive correlation would support the hypothesis that increasing the specificity of a prompt leads to more relevant responses.
+   5.3. For a more rigorous analysis, perform a regression analysis with S as the independent variable and R as the dependent variable. The coefficient of S in the regression model would indicate the degree to which specificity influences relevance.
+
+6. Draw Conclusions:
+   6.1. Based on the results of the correlation and regression analyses, draw conclusions about the validity of the hypothesis. If the analyses show a positive relationship between S and R, this would support the hypothesis. If not, the hypothesis may need to be revised or rejected.
+
+7. Report Findings:
+   7.1. Document the methodology, results, and conclusions in a report. Include details about the specificity and relevance metrics, the dataset of prompts, the LLM's responses, and the statistical analyses. This will allow others to understand, replicate, and build upon the findings.

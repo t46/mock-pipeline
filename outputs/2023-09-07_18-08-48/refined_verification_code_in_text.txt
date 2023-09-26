@@ -1,0 +1,48 @@
+```python
+import pandas as pd
+import numpy as np
+from scipy.stats import pearsonr
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+
+# Assuming we have a dataset in CSV format with columns 'Prompt', 'Specificity_Score', 'Ideal_Response_Type'
+dataset = pd.read_csv('prompts_dataset.csv')
+
+# Assuming we have a function generate_response that takes a prompt and returns a response from the LLM
+def generate_response(prompt):
+    # This function should be implemented based on the specific LLM being used
+    pass
+
+# Generate responses for all prompts and store them in the dataset
+dataset['LLM_Response'] = dataset['Prompt'].apply(generate_response)
+
+# Assuming we have a function classify_response that takes a response and returns its type
+def classify_response(response):
+    # This function should be implemented based on the specific classification model being used
+    pass
+
+# Classify all responses and store them in the dataset
+dataset['Actual_Response_Type'] = dataset['LLM_Response'].apply(classify_response)
+
+# Compare the actual response type with the ideal response type and record whether they match
+dataset['Match'] = dataset['Ideal_Response_Type'] == dataset['Actual_Response_Type']
+
+# Calculate the correlation between the specificity score and the match
+correlation, _ = pearsonr(dataset['Specificity_Score'], dataset['Match'])
+print('Correlation: ', correlation)
+
+# Perform a regression analysis
+X = dataset['Specificity_Score'].values.reshape(-1,1)
+y = dataset['Match']
+
+model = LinearRegression()
+model.fit(X, y)
+
+# Include visualizations
+sns.scatterplot(data=dataset, x='Specificity_Score', y='Match')
+plt.show()
+```

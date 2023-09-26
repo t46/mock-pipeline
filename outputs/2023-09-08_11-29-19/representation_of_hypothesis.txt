@@ -1,0 +1,16 @@
+Original Hypothesis:
+We could refine the prompts to be more specific. For example, instead of asking "What is 1 + 1?", we could ask "Provide the numerical answer to 1 + 1". This might encourage the LLM to respond with just the number.
+
+Refined Hypothesis:
+The specificity of prompts influences the type of response from the Language Learning Model (LLM). If the prompt is more specific, such as "Provide the numerical answer to 1 + 1", instead of a general question like "What is 1 + 1?", the LLM is more likely to respond with a numerical answer only.
+
+This hypothesis can be tested by conducting an experiment where a set of general prompts and a set of specific prompts are given to the LLM. The responses can then be categorized into numerical and non-numerical responses. The proportion of numerical responses for each set of prompts can then be compared using a statistical test, such as a chi-square test for independence.
+
+Mathematically, this can be represented as:
+
+Let G be the set of general prompts and S be the set of specific prompts. Let N_G and N_S be the number of numerical responses to the general and specific prompts respectively. The hypothesis can then be represented as:
+
+H0: P(N_G) = P(N_S) (The proportion of numerical responses is the same for general and specific prompts)
+H1: P(N_G) < P(N_S) (The proportion of numerical responses is less for general prompts than for specific prompts)
+
+The chi-square test for independence can then be used to test the null hypothesis. If the p-value is less than 0.05, we reject the null hypothesis and conclude that the specificity of prompts influences the type of response from the LLM.

@@ -1,0 +1,25 @@
+Verification Plan:
+
+1. Data Collection:
+   1.1. Collect a set of mathematical problems that can be posed as both a question and a calculation. For example, "What is 1 + 1?" and "Calculate: 1 + 1". Ensure that the problems cover a range of mathematical operations (addition, subtraction, multiplication, division, etc.) to ensure a comprehensive test.
+   1.2. Store these problems in two separate lists: Pq (question format) and Pc (calculation format).
+
+2. Model Testing:
+   2.1. Input each prompt from Pq into the Large Language Model (LLM) and store the responses in a list Rq.
+   2.2. Repeat the process with Pc, storing the responses in a list Rc.
+
+3. Response Evaluation:
+   3.1. Define a function D(r) that measures the directness of a response r. This function should return 1 if r is a direct correct answer, 0.5 if r is a correct answer with additional information, and 0 if r is an incorrect answer.
+   3.2. Apply the function D(r) to each response in Rq and Rc, storing the results in two separate lists: Dq and Dc.
+
+4. Data Analysis:
+   4.1. Calculate the average directness score for Dq and Dc.
+   4.2. Compare the average scores. If the average score for Dc is higher than the average score for Dq, this would support the hypothesis that calculation prompts yield more direct responses than question prompts.
+
+5. Hypothesis Verification:
+   5.1. If the average score of Dc is significantly higher than Dq, then the hypothesis is verified.
+   5.2. If there is no significant difference between the average scores of Dc and Dq, or if Dq is higher, then the hypothesis is not verified.
+
+6. Report Results:
+   6.1. Document the process and results in a report. Include the original problem, hypothesis, verification plan, data collected, and the results of the hypothesis test.
+   6.2. If the hypothesis was verified, suggest potential applications and further research. If the hypothesis was not verified, suggest potential reasons and alternative hypotheses to test.

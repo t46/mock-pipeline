@@ -1,0 +1,39 @@
+import random
+import numpy as np
+from scipy import stats
+from transformers import pipeline
+
+# Initialize the LLM
+llm = pipeline('text-generation')
+
+# Step 1: Data Collection
+questions = ["What is 1 + 1?", "Who was the first president of the United States?", "What is the capital of France?", "What is the meaning of life?", "What is the speed of light?"]
+open_ended_prompts = ["Can you tell me about " + q for q in questions]
+direct_prompts = ["Provide the answer for " + q for q in questions]
+
+# Step 2: Experiment Setup
+group_A = open_ended_prompts
+group_B = direct_prompts
+
+# Ensure the groups are balanced
+assert len(group_A) == len(group_B)
+
+# Step 3: Running the Experiment
+responses_A = [llm(prompt)[0]['generated_text'] for prompt in group_A]
+responses_B = [llm(prompt)[0]['generated_text'] for prompt in group_B]
+
+# Step 4: Data Analysis
+lengths_A = [len(response.split()) for response in responses_A]
+lengths_B = [len(response.split()) for response in responses_B]
+
+average_length_A = np.mean(lengths_A)
+average_length_B = np.mean(lengths_B)
+
+# Step 5: Statistical Testing
+t_stat, p_value = stats.ttest_ind(lengths_A, lengths_B, alternative='greater')
+
+# Step 6: Interpretation and Conclusion
+if p_value < 0.05:
+    print("The direct, specific prompts lead to more concise responses.")
+else:
+    print("The structure and wording of a prompt do not significantly influence the conciseness of the LLM's output, or the effect is not as strong as hypothesized.")

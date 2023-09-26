@@ -1,0 +1,1 @@
+Hypothesis 2: We could modify the prompt to instruct the model to provide a direct answer. For example, instead of asking "What is 1 + 1?", we could ask "Provide a one-word answer: What is 1 + 1?".

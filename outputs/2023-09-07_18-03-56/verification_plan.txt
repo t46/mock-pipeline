@@ -1,0 +1,31 @@
+Verification Plan:
+
+1. Define the Criteria for Directness:
+   - Before starting the experiment, we need to define what constitutes a "direct" response. For instance, a direct response could be defined as one that only contains the answer without any additional explanatory or contextual text. 
+   - Develop a scoring system for directness. For example, a score of 10 could be given to a response that only contains the answer, while a score of 1 could be given to a response that contains a lot of extraneous information. 
+
+2. Prepare the Dataset:
+   - Prepare a set of mathematical questions. The questions should be simple enough that the LLM can answer them correctly. 
+   - Divide the questions into two sets: a general set (G) and a specific set (S). The general set should contain questions phrased in a general way (e.g., "What is 1 + 1?"), while the specific set should contain the same questions but phrased in a more specific way (e.g., "Provide the numerical answer to 1 + 1").
+
+3. Run the Experiment:
+   - Input the questions from set G into the LLM and record the responses. 
+   - Repeat the process with the questions from set S. 
+
+4. Evaluate the Responses:
+   - Evaluate the directness of each response using the scoring system defined in step 1. 
+   - Calculate the average directness score for the responses to the questions in set G and set S. 
+
+5. Compare the Results:
+   - Compare the average directness scores for the two sets of questions. If the average score for set S is higher than the average score for set G, this would support the hypothesis that more specific prompts lead to more direct responses. 
+
+6. Statistical Analysis:
+   - To ensure the validity of the results, perform a statistical test (e.g., a t-test) to determine whether the difference in average directness scores is statistically significant. 
+
+7. Document the Results:
+   - Document the process and results of the experiment in a report. The report should include the original problem, the hypothesis, the methodology used to test the hypothesis, the results of the experiment, and a conclusion that states whether the results support or refute the hypothesis. 
+
+8. Review and Refine:
+   - Based on the results, review and refine the hypothesis if necessary. If the results do not support the hypothesis, consider other factors that might influence the directness of the LLM's responses and revise the hypothesis accordingly. 
+
+This verification plan should provide a systematic and objective way to test the hypothesis that more specific prompts lead to more direct responses from a large language model.

@@ -1,0 +1,26 @@
+Verification Plan:
+
+1. Define the Experiment:
+   1.1. Define the set of questions to be used in the experiment. These should be diverse and representative of the types of questions typically asked to the LLM. 
+   1.2. Define the scoring system. A response gets a score of 1 if it is a single number, and 0 otherwise.
+
+2. Prepare the Data:
+   2.1. Prepare two sets of prompts for each question in the set defined in step 1.1. The first set should use the original style of prompt (e.g., "What is 1 + 1?"), and the second set should use the refined style of prompt (e.g., "Provide the numerical answer to 1 + 1").
+
+3. Run the Experiment:
+   3.1. Input each prompt from the first set (original style) into the LLM and record the responses.
+   3.2. Input each prompt from the second set (refined style) into the LLM and record the responses.
+
+4. Score the Responses:
+   4.1. Apply the scoring system defined in step 1.2 to each response from the LLM. Record the scores for each set of prompts.
+
+5. Analyze the Results:
+   5.1. Calculate the average score for the responses to the original style prompts and the average score for the responses to the refined style prompts.
+   5.2. Perform a t-test to compare the average scores from the two sets of prompts. The null hypothesis is that the two sets of prompts result in the same average score, and the alternative hypothesis is that the refined prompts result in a higher average score.
+
+6. Interpret the Results:
+   6.1. If the t-test shows a statistically significant difference in the average scores, with the refined prompts resulting in a higher average score, then we can conclude that the hypothesis is supported.
+   6.2. If the t-test does not show a statistically significant difference, or if the difference is in the opposite direction (i.e., the original prompts result in a higher average score), then we can conclude that the hypothesis is not supported.
+
+7. Report the Results:
+   7.1. Prepare a report summarizing the methodology, results, and conclusions of the experiment. This should include a detailed description of the experiment design, the data used, the scoring system, the statistical analysis, and the interpretation of the results. The report should also include any limitations of the study and suggestions for future research.

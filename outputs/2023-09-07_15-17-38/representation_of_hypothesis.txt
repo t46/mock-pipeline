@@ -1,0 +1,16 @@
+Original Hypothesis:
+The hypothesis suggests that refining prompts to be more specific, such as changing "What is 1 + 1?" to "Provide the numerical answer to 1 + 1", might encourage the Language Learning Model (LLM) to respond with just the number.
+
+Refined Hypothesis:
+The hypothesis can be refined and made more specific by defining the expected outcome and the method of measurement. 
+
+Refined Hypothesis: If we modify the prompts to be more specific, such as changing "What is 1 + 1?" to "Provide the numerical answer to 1 + 1", the Language Learning Model (LLM) will respond with just the numerical answer in more than 80% of the cases.
+
+This hypothesis can be tested by running an experiment where we provide the LLM with both types of prompts and record the type of response (numerical or non-numerical) it gives. We can then calculate the percentage of cases where the LLM responded with just the numerical answer for each type of prompt.
+
+Mathematical Representation:
+Let N be the total number of prompts given to the LLM, and let n be the number of times the LLM responds with just the numerical answer. The hypothesis can be represented mathematically as:
+
+If the prompt is specific (e.g., "Provide the numerical answer to 1 + 1"), then n/N > 0.8.
+
+This means that if the prompt is specific, the LLM will respond with just the numerical answer more than 80% of the time.

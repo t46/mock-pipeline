@@ -1,0 +1,17 @@
+Original Hypothesis:
+The instructions given to the LLM could be modified to specify the desired format of the response. For example, instead of asking "What is 1 + 1?", the prompt could be "Provide the numerical answer to 1 + 1".
+
+Refined Hypothesis:
+The response format of a Language Learning Model (LLM) can be influenced by the specificity of the instructions given in the prompt. For instance, a more specific prompt such as "Provide the numerical answer to 1 + 1" instead of a general one like "What is 1 + 1?" will yield a more precise numerical response from the LLM.
+
+To test this hypothesis, we can conduct an experiment where we provide the LLM with two sets of prompts: one set with general instructions and another with specific instructions. We then compare the responses from the LLM for each set of prompts. 
+
+Mathematically, we can represent the hypothesis as follows:
+
+Let G be the set of responses from the LLM for general prompts and S be the set of responses for specific prompts. We hypothesize that the specificity of responses in S will be greater than in G. 
+
+This can be represented as:
+
+Specificity(S) > Specificity(G)
+
+Where Specificity is a function that measures the precision of the LLM's responses. This function could be defined in various ways depending on the context, such as the proportion of responses that are in the exact format requested in the prompt.

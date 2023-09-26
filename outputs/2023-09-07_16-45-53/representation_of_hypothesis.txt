@@ -1,0 +1,15 @@
+Original Hypothesis:
+Hypothesis 3: We could modify the prompts to be more specific about the type of response we want. For example, instead of asking "What is 1 + 1?", we could ask "Provide the numerical answer to 1 + 1".
+
+Refined Hypothesis:
+Hypothesis 3: Modifying the prompts to be more specific about the type of response required will increase the accuracy of responses. For instance, instead of asking "What is 1 + 1?", if we ask "Provide the numerical answer to 1 + 1", we hypothesize that the percentage of correct responses will increase.
+
+To test this hypothesis, we can conduct an experiment where we have two groups of participants. Group A will receive the original prompt ("What is 1 + 1?") and Group B will receive the modified prompt ("Provide the numerical answer to 1 + 1"). We will then compare the percentage of correct responses between the two groups.
+
+Mathematically, this can be represented as:
+
+Let A be the percentage of correct responses from Group A and B be the percentage of correct responses from Group B.
+
+Our hypothesis can then be represented as: B > A. 
+
+If our experiment shows that B is indeed greater than A, then our hypothesis is supported. If not, our hypothesis is not supported.

@@ -1,0 +1,10 @@
+Original Hypothesis:
+4. Prompt Engineering: Modify the prompts to guide the model towards the desired output. For example, instead of asking "What is 1 + 1?", the prompt could be "Calculate 1 + 1 and provide the answer only."
+
+Refined Hypothesis:
+The modification of prompts in a computational model can guide the model towards a more specific desired output. This can be tested by comparing the outputs of a model when given two different prompts for the same task. For instance, the model can be asked to solve the mathematical problem "1 + 1". In one scenario, the prompt could be "What is 1 + 1?", and in another scenario, the prompt could be "Calculate 1 + 1 and provide the answer only." The hypothesis can be represented as:
+
+H0: The output of the model is the same regardless of the prompt modification.
+H1: The output of the model varies with the prompt modification.
+
+This can be tested using a paired t-test, where the output from the model for each prompt is paired and compared. If the p-value is less than 0.05, we reject the null hypothesis (H0) and accept the alternative hypothesis (H1), indicating that the modification of prompts does guide the model towards a more specific desired output.

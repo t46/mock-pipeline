@@ -1,0 +1,29 @@
+Verification Plan:
+
+1. Define Specificity and Directness:
+   1.1. Specificity: The level of detail and precision in the prompt. A more specific prompt will contain more detailed instructions or questions.
+   1.2. Directness: The relevance and conciseness of the LLM's response. A more direct response will contain only the necessary information and will be shorter in length.
+
+2. Create a Dataset:
+   2.1. Generate a dataset of prompts with varying levels of specificity. For example, for the math problem "What is 1 + 1?", a less specific prompt might be "Solve this math problem", a more specific prompt might be "Calculate the sum of 1 and 1", and an even more specific prompt might be "Provide the numerical answer to the addition of 1 and 1".
+   2.2. Ensure that the dataset is large and diverse enough to cover a wide range of topics and types of prompts.
+
+3. Run the Experiment:
+   3.1. Input each prompt from the dataset into the LLM and record the responses.
+   3.2. Ensure that the LLM is in the same state (i.e., not updated or modified) throughout the experiment to maintain consistency.
+
+4. Evaluate the Directness of the Responses:
+   4.1. Develop a metric to measure the directness of the responses. This could be the length of the response, the presence of unnecessary information, or a combination of both.
+   4.2. Use this metric to evaluate the directness of each response from the LLM.
+
+5. Analyze the Results:
+   5.1. Plot the specificity of the prompts against the directness of the responses to visualize the relationship between the two.
+   5.2. Calculate the correlation coefficient between the specificity of the prompts and the directness of the responses to quantify the strength of the relationship.
+
+6. Draw Conclusions:
+   6.1. If the results show a strong positive correlation, this would support the hypothesis that the specificity of the prompt has a direct impact on the directness of the response.
+   6.2. If the results show a weak or no correlation, this would suggest that the specificity of the prompt does not significantly affect the directness of the response.
+
+7. Refine the Hypothesis:
+   7.1. Based on the results, refine the hypothesis if necessary and repeat the experiment.
+   7.2. Consider other factors that might affect the directness of the response, such as the complexity of the prompt or the topic of the prompt.

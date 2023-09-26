@@ -1,0 +1,1 @@
+Hypothesis: Modifying the prompt to explicitly request a concise answer could help guide the model to produce more direct responses. For example, instead of asking "What is 1 + 1?", the prompt could be "Give a one-word answer: What is 1 + 1?".

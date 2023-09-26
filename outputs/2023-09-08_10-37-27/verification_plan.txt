@@ -1,0 +1,23 @@
+Verification Plan:
+
+1. Define the Dataset:
+   1.1. Create a dataset of questions that can be answered numerically. These questions should be diverse and cover a wide range of topics to ensure the results are not biased towards a specific type of question.
+   1.2. For each question, create two versions of the prompt: the original version (e.g., "What is 1 + 1?") and the modified version (e.g., "Provide the numerical answer to 1 + 1").
+
+2. Define the Evaluation Metric:
+   2.1. The evaluation metric will be the accuracy of the responses. This will be calculated by comparing the LLM's output to the correct answer. If the output matches the correct answer exactly, it will be considered correct. Otherwise, it will be considered incorrect.
+
+3. Conduct the Experiment:
+   3.1. Input the original version of each prompt into the LLM and record the output.
+   3.2. Input the modified version of each prompt into the LLM and record the output.
+   3.3. For each output, determine whether it is correct or incorrect according to the evaluation metric defined in step 2.
+
+4. Analyze the Results:
+   4.1. Calculate the accuracy of the responses to the original prompts (A) by dividing the number of correct responses by the total number of responses.
+   4.2. Calculate the accuracy of the responses to the modified prompts (B) by dividing the number of correct responses by the total number of responses.
+   4.3. Compare A and B to determine whether B > A. If B > A, this supports the hypothesis that modifying the prompts to be more specific about the type of response required increases the accuracy of responses.
+
+5. Draw Conclusions:
+   5.1. If the results support the hypothesis, conclude that modifying the prompts to be more specific about the type of response required can increase the accuracy of responses from the LLM.
+   5.2. If the results do not support the hypothesis, conclude that modifying the prompts does not necessarily increase the accuracy of responses from the LLM. Consider other factors that may be influencing the results, such as the complexity of the questions or the LLM's ability to understand the modified prompts.
+   5.3. Regardless of the results, consider potential improvements to the experiment, such as using a larger dataset or refining the modified prompts.
