@@ -14,13 +14,6 @@ Hypotheses:
 {hypotheses}
 """
 
-hypothesis_elaboration_template = """
-Please make the hypothesis below more specific by providing a concrete example.
-
-Hypothesis:
-{hypothesis}
-"""
-
 
 class HypothesisGenerator:
     def __init__(self, llm):
@@ -34,14 +27,9 @@ class HypothesisGenerator:
         selected_hypothesis = self.llm(hypothesis_selection_template.format(hypotheses=hypothesis_candidates))
         print(selected_hypothesis)
 
-        # elaborated_hypothesis = self.llm(hypothesis_elaboration_template.format(problem=problem, hypothesis=selected_hypothesis))
-        # print(elaborated_hypothesis)
-
         hypothesis_data = {
             'hypothesis_candidates': hypothesis_candidates,
             'hypothesis': selected_hypothesis,
-            # 'selected_hypothesis': selected_hypothesis,
-            # 'hypothesis': elaborated_hypothesis,
         }
 
         self.outputs.update(hypothesis_data)
