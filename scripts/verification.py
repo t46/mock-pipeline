@@ -1,37 +1,46 @@
-import openai
 import numpy as np
 from scipy import stats
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
-# 1. Data Collection
-questions = ["What is the capital of France?", "Who wrote 'To Kill a Mockingbird'?", "What is the square root of 16?"]
-modified_questions = ["Give a direct answer: " + q for q in questions]
+# Define the Scoring Function
+def scoring_function(response, prompt):
+    vectorizer = TfidfVectorizer().fit_transform([response, prompt])
+    cosine = cosine_similarity(vectorizer[0:1], vectorizer[1:2])
+    return cosine[0][0]
 
-# 2. Model Testing
-def get_response(prompt):
-    response = openai.Completion.create(engine="text-davinci-002", prompt=prompt, max_tokens=60)
-    return response.choices[0].text.strip()
+# Define the Response Generation Function
+def generate_response(prompt):
+    # For now, simply return the prompt as the response
+    # Replace this with your own logic for generating a response
+    return prompt
 
-original_responses = [get_response(q) for q in questions]
-modified_responses = [get_response(q) for q in modified_questions]
+# Prepare the Dataset
+prompts = ["What is 1 + 1?", "Calculate 1 + 1 and provide only the numerical answer."] 
+correct_responses = ["2", "2"] 
 
-# 3. Data Analysis
-def response_analysis(original_responses, modified_responses):
-    original_lengths = [len(r.split()) for r in original_responses]
-    modified_lengths = [len(r.split()) for r in modified_responses]
-    
-    original_directness = [1 if r.split()[0] in q else 0 for r, q in zip(original_responses, questions)]
-    modified_directness = [1 if r.split()[0] in q else 0 for r, q in zip(modified_responses, modified_questions)]
-    
-    return original_lengths, modified_lengths, original_directness, modified_directness
+# Generate responses
+responses = [generate_response(prompt) for prompt in prompts]
 
-original_lengths, modified_lengths, original_directness, modified_directness = response_analysis(original_responses, modified_responses)
+# Score the Responses
+scores = [scoring_function(response, prompt) for response, prompt in zip(responses, prompts)]
 
-# 4. Statistical Analysis
-length_ttest = stats.ttest_rel(original_lengths, modified_lengths)
-directness_ttest = stats.ttest_rel(original_directness, modified_directness)
+# Test the responses
+successful_tests = 0
+for i in range(0, len(prompts), 2):
+    if scores[i+1] > scores[i]:
+        successful_tests += 1
 
-# 5. Conclusion
-if length_ttest.pvalue < 0.05 and directness_ttest.pvalue < 0.05:
-    print("The hypothesis is verified.")
+# Analyze the Results
+percentage_successful = (successful_tests / (len(prompts) / 2)) * 100
+print(f"Percentage of successful test cases: {percentage_successful}%")
+
+# Perform a paired t-test
+t_statistic, p_value = stats.ttest_rel(scores[::2], scores[1::2])
+print(f"Paired t-test p-value: {p_value}")
+
+# Draw Conclusions
+if percentage_successful > 50 and p_value < 0.05:
+    print("The specificity and clarity of prompts given to a Language Model significantly influence the relevance of its generated responses.")
 else:
-    print("The hypothesis is not verified.")
+    print("The evidence does not support the hypothesis.")
