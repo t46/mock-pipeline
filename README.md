@@ -53,3 +53,20 @@ python pipeline.py
 ```shell
 ./run_pipeline.sh
 ```
+
+## Evaluation
+The author's subjective evaluation results are recorded in `outputs/evaluation.csv` . If the criteria listed in the columns are satisfied, 1 is recorded, and if not, 0 is recorded. Below is a brief description of each column. Please refer to the Appendix of the paper for a description of how the evaluation was conducted.
+
+- `hypothesis_is_appropriate`: If the hypothesis is judged to be appropriate for the problem, 1 is recorded.
+- `hypothesis_is_feasible`: If the hypothesis is judged to be feasible given the resouce GPT-4 can use, 1 is recorded.
+- `verification_code_or_code_updated_is_appropriate`: If the `verification_code.py` or the `verification_code_updated.py` is judged to be appropriate, 1 is recorded.
+- `verification_code_is_executable`: If `verification_code.py` is executable, 1 is recorded.
+- `no_plaece_holder`: If there is no place holder, ellipsis, or items that have only comments left without any implementation in `verification_code.py`, 1 is recorded.
+- `package_install_is_executable`: If `package_install_code.py` is executable, 1 is recorded.
+- `verification_code_updated_is_executable`: If `verification_code_updated.py` is executable, 1 is recorded.
+- `verification_code_updated_contains_api_error`: If `verification_code_updated.py` contains an error related to API use, 1 is recorded.
+- `api_error_only`: If `verification_code_updated.py` contains only an error related to API use, 1 is recorded.
+- `appropriate & executable`: If either `verification_code.py` or `verification_code_updated.py` is both appropriate and executable, 1 is recorded.
+- `appropriate & executable & package`: If either `verification_code.py` or `verification_code_updated.py` is both appropriate and executable, and `package_install_code.py` is executable, 1 is recorded.
+- `appropriate & api_only`: If either `verification_code.py` or `verification_code_updated.py` is both appropriate and executable, and `verification_code_updated.py` contains only an error related to API use, 1 is recorded.
+- `total_evaluation`: If `hypthesis_is_appropriate`, `hyoithesis_is_feasible`, and `appropriate & executable & package` are 1, 1, 1 is recorded, 1 is recorded.
